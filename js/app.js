@@ -36,9 +36,8 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
         var query = "./products/GetFilters.php?p=" + $routeParams.productType;
         query = query + "&filterType" + "=" + 'price';
         $http.get(query).success(function(data) {            
-            data.forEach(function(data) {
-                data.price = data.price - (data.price % 100);
-                data['label'] = 'less than ' + data.price;
+            data.forEach(function(data) {                
+                data['label'] = 'less than $' + data.price;
             });
             $scope.priceOptions = data;
         });
@@ -90,7 +89,7 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
                     + $scope.brandFilterQuery + $scope.colourFilterQuery + $scope.storageFilterQuery + ";";
 
             getFilteredProducts($routeParams.uid, $routeParams.productType, $scope.query);
-            
+
         }    
     } else if ($routeParams.pageType === 'shoppingCart') {
         getCart($routeParams.uid, "name");
