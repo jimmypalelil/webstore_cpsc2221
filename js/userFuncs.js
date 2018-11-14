@@ -33,7 +33,7 @@ function logout() {
 
 function registerUser(email, password, firstName, lastName, address) {
     var xmlhttp = new XMLHttpRequest();
-    var query = "/term\ project/UserAction.php?req=register";
+    var query = "UserAction.php?req=register";
     query = query + "&email=" + email;
     query = query + "&password=" + password;
     query = query + "&firstName=" + firstName;
