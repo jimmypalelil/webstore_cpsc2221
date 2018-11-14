@@ -19,15 +19,19 @@ $productType = $_REQUEST["p"];
 $filterType = $_REQUEST['filterType'];  
 
 if($filterType === 'brand') {    
-    $query = "SELECT DISTINCT brand FROM PRODUCT WHERE type='$productType'";
+    $query = "SELECT DISTINCT brand FROM PRODUCT WHERE type='$productType' ORDER BY brand ASC";
     $result = $conn->query($query);
     sendRes($result);    
 } else if($filterType === 'colour') {
-    $query = "SELECT DISTINCT colour FROM PRODUCT WHERE type='$productType'";
+    $query = "SELECT DISTINCT colour FROM PRODUCT WHERE type='$productType' ORDER BY colour ASC";
     $result = $conn->query($query);
     sendRes($result);
 } else if($filterType === 'storage') {
     $query = "SELECT DISTINCT storage FROM PRODUCT WHERE type='$productType'";
+    $result = $conn->query($query);
+    sendRes($result);
+} else if($filterType === 'price') {
+    $query = "SELECT DISTINCT price FROM PRODUCT WHERE type='$productType' ORDER BY price ASC";
     $result = $conn->query($query);
     sendRes($result);
 }

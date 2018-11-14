@@ -32,6 +32,17 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
         $scope.showFilters = true;
         getProduct($routeParams.uid, $routeParams.productType, "name");
 
+        //Get Price Filters
+        var query = "./products/GetFilters.php?p=" + $routeParams.productType;
+        query = query + "&filterType" + "=" + 'price';
+        $http.get(query).success(function(data) {            
+            data.forEach(function(data) {
+                data.price = data.price - (data.price % 100);
+                data['label'] = 'less than ' + data.price;
+            });
+            $scope.priceOptions = data;
+        });
+        
         //Get Brand Filters
         var query = "./products/GetFilters.php?p=" + $routeParams.productType;
         query = query + "&filterType" + "=" + 'brand';
@@ -57,7 +68,7 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
             if($scope.priceOptionSelected == null) {
                 $scope.priceFilterQuery = '';
             } else {
-                $scope.priceFilterQuery = " AND price < '" + $scope.priceOptionSelected.id + "'";    
+                $scope.priceFilterQuery = " AND price < '" + $scope.priceOptionSelected.price + "'";    
             }
             if($scope.brandOptionSelected == null) {
                 $scope.brandFilterQuery = '';
@@ -77,22 +88,10 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
             
             $scope.query = "SELECT * FROM PRODUCT WHERE type = '" + $routeParams.productType + "'" + $scope.priceFilterQuery 
                     + $scope.brandFilterQuery + $scope.colourFilterQuery + $scope.storageFilterQuery + ";";
-            getFilteredProducts($routeParams.uid, $routeParams.productType, $scope.query);
-        }    
 
-        $scope.priceOptions = [{
-            id: 500,
-            label: 'less than $500'
-        }, {
-            id: 1000,
-            label: 'less than $1000'
-        },{
-            id: 1500,
-            label: 'less than $1500'
-        }, {
-            id: 2500,
-            label: 'less than $2500'
-        }];
+            getFilteredProducts($routeParams.uid, $routeParams.productType, $scope.query);
+            
+        }    
     } else if ($routeParams.pageType === 'shoppingCart') {
         getCart($routeParams.uid, "name");
     } else if($routeParams.pageType === 'orders') {
