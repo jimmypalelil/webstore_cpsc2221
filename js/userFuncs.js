@@ -6,7 +6,7 @@ function loginUser() {
     var password = document.getElementById("password").value;
 
     var xmlhttp = new XMLHttpRequest();
-    var query = "/term\ project/UserAction.php?req=login";
+    var query = "UserAction.php?req=login";
     query = query + "&email=" + email;
     query = query + "&password=" + password;
     xmlhttp.open("GET", query, true);
