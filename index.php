@@ -44,11 +44,11 @@
 						<div class="dropdown">
 						<button class="dropbtn">Products</button>
 						<div class="dropdown-content">
-							<a href="#/products/camera/'.$_SESSION['UID'].'">Cameras</a>
-							<a href="#/products/laptop/'.$_SESSION['UID'].'">Laptops</a>
-							<a href="#/products/cellphone/'.$_SESSION['UID'].'">Cellphones</a>
-							<a href="#/products/tablet/'.$_SESSION['UID'].'">Tablets</a>
-							<a href="#/products/smartwatch/'.$_SESSION['UID'].'">Smartwatches</a>
+							<a href="#/products/products/camera/'.$_SESSION['UID'].'">Cameras</a>
+							<a href="#/products/products/laptop/'.$_SESSION['UID'].'">Laptops</a>
+							<a href="#/products/products/cellphone/'.$_SESSION['UID'].'">Cellphones</a>
+							<a href="#/products/products/tablet/'.$_SESSION['UID'].'">Tablets</a>
+							<a href="#/products/products/smartwatch/'.$_SESSION['UID'].'">Smartwatches</a>
 						</div>	
 					</div>';
 			echo '<a href="#/usr/shoppingCart/'.$_SESSION['UID'].'">Shopping Cart</a>';

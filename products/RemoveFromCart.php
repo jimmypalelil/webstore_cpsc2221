@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
 $pid = $_REQUEST["pid"];
 $uid = $_REQUEST['uid'];
-$deleteQuery = "DELETE from shopping_cart where PID='$pid' and UID='$uid'";
+$deleteQuery = "DELETE FROM SHOPPING_CART WHERE PID='$pid' AND UID='$uid'";
     
 $result = $conn->query($deleteQuery);
 

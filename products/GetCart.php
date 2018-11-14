@@ -56,7 +56,7 @@ function sendRes($dbResult, $uid, $totalPrice) {
         echo "<td> ".$row['colour']."</td>";
         echo "<td>".$row['quantity']."</td>";
         echo "<td>$".$row['totalPrice']."</td>";        
-        echo "<td><button class='btn btn-danger' onclick='setPRODUCTVars(" .$row['PID']. ",".$uid .")' data-toggle='modal' data-target='#removeFROMCartModal'/>Remove FROM Cart</td>";
+        echo "<td><button class='btn btn-danger' onclick='setProductVars(" .$row['PID']. ",".$uid .")' data-toggle='modal' data-target='#removeFromCartModal'/>Remove from Cart</td>";
         echo "</tr>";
     }
     echo "<tr><td></td><td></td><td></td><td></td><td><b>Cart Total:</td>";
