@@ -23,7 +23,7 @@ $req = $_REQUEST['req'];
 
 if($req === 'all') {
 
-    $query = "SELECT * from product Where type='$productType' 
+    $query = "SELECT * FROM PRODUCT WHERE type='$productType' 
     order by $orderingType $ordering";
 
     $result = $conn->query($query);
@@ -37,7 +37,7 @@ if($req === 'all') {
     $conn->close();
 } else if($req === 'filterPrice') {
     $price = $_REQUEST['price'];
-    $query = "SELECT * from product Where type='$productType' and price < '$price'
+    $query = "SELECT * FROM PRODUCT WHERE type='$productType' and price < '$price'
     order by $orderingType $ordering";
     $result = $conn->query($query);
 
@@ -50,7 +50,7 @@ if($req === 'all') {
     $conn->close();
 }else if($req === 'filterBrand') {
     $brand = $_REQUEST['brand'];
-    $query = "SELECT * from product Where type='$productType' and brand = '$brand'
+    $query = "SELECT * FROM PRODUCT WHERE type='$productType' and brand = '$brand'
         order by $orderingType $ordering";
     $result = $conn->query($query);
 
@@ -63,7 +63,7 @@ if($req === 'all') {
     $conn->close();
 } else if($req === 'filterColour') {
     $colour = $_REQUEST['colour'];
-    $query = "SELECT * from product Where type='$productType' and colour = '$colour'
+    $query = "SELECT * FROM PRODUCT WHERE type='$productType' and colour = '$colour'
         order by $orderingType $ordering";
     $result = $conn->query($query);
 
@@ -79,7 +79,7 @@ if($req === 'all') {
 
 
 function sendRes($dbResult, $productType, $uid) {
-    //Setup the product display table
+    //Setup the PRODUCT display table
     echo "<table class='table'><tr>";
     echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"name\")'>Name</th>";
     echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"brand\")'>Brand</th>";
@@ -124,7 +124,7 @@ function sendRes($dbResult, $productType, $uid) {
         echo "<td>".$row['storage']."</td>";
         echo "<td>".$row['year']."</td>";    
 
-        //Dynamic table view based on product Type
+        //Dynamic table view based on PRODUCT Type
         switch($productType) {
             case "camera":
                 echo "<td>".$row['lens']."</td>";

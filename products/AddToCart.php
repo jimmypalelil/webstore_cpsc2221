@@ -16,12 +16,12 @@ if ($conn->connect_error) {
 $pid = $_REQUEST["pid"];
 $uid = $_REQUEST['uid'];
 $quantity = $_REQUEST['q'];
-$priceQuery = "SELECT price from product where PID=$pid";
+$priceQuery = "SELECT price FROM PRODUCT WHERE PID=$pid";
 $priceResult = $conn->query($priceQuery);
 $priceResult = $priceResult->fetch_assoc()['price'];
 $totalPrice = $priceResult * $quantity;
 
-$query = "REPLACE into shopping_cart values ($uid, $pid, $quantity, $totalPrice)";
+$query = "REPLACE INTO SHOPPING_CART VALUES ($uid, $pid, $quantity, $totalPrice)";
     
 $result = $conn->query($query);
 

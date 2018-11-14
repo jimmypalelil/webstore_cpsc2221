@@ -19,12 +19,12 @@ $orderingType = $_REQUEST['ot'];
 $ordering = $_REQUEST['o'];
 $uid = $_REQUEST['uid'];
 
-$cartQuery = "SELECT * from product p, shopping_cart sc Where p.PID = sc.PID AND sc.UID = '$uid' 
+$cartQuery = "SELECT * FROM PRODUCT p, SHOPPING_CART sc WHERE p.PID = sc.PID AND sc.UID = '$uid' 
     order by $orderingType $ordering";
 
 $result = $conn->query($cartQuery);
 
-$totalPriceQuery = "SELECT SUM(totalPrice) as sum from shopping_cart where UID='$uid'";
+$totalPriceQuery = "SELECT SUM(totalPrice) as sum FROM SHOPPING_CART WHERE UID='$uid'";
 
 $totalPrice = $conn->query($totalPriceQuery);
 
@@ -39,15 +39,15 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 function sendRes($dbResult, $uid, $totalPrice) {
-    //Setup the product display table
+    //Setup the PRODUCT display table
     echo "<table class='table'><tr>";
-    echo "<th onclick='getCart(\"$uid\",\"type\")'>Product Type</th>";
+    echo "<th onclick='getCart(\"$uid\",\"type\")'>PRODUCT Type</th>";
     echo "<th onclick='getCart(\"$uid\",\"name\")'>Name</th>";
     echo "<th onclick='getCart(\"$uid\",\"brand\")'>Brand</th>";
     echo "<th onclick='getCart(\"$uid\",\"colour\")'>Colour</th>";
     echo "<th onclick='getCart(\"$uid\",\"quantity\")'>Quantity</th>";
     echo "<th onclick='getCart(\"$uid\",\"totalPrice\")'>Total</th>";     
-    echo "<th>Remove From Cart</tr>";
+    echo "<th>Remove FROM Cart</tr>";
     while($row = $dbResult->fetch_assoc()) {
         echo "<tr>";
         echo "<td>".strtoupper($row['type'])."</td>";
@@ -56,7 +56,7 @@ function sendRes($dbResult, $uid, $totalPrice) {
         echo "<td> ".$row['colour']."</td>";
         echo "<td>".$row['quantity']."</td>";
         echo "<td>$".$row['totalPrice']."</td>";        
-        echo "<td><button class='btn btn-danger' onclick='setProductVars(" .$row['PID']. ",".$uid .")' data-toggle='modal' data-target='#removeFromCartModal'/>Remove From Cart</td>";
+        echo "<td><button class='btn btn-danger' onclick='setPRODUCTVars(" .$row['PID']. ",".$uid .")' data-toggle='modal' data-target='#removeFROMCartModal'/>Remove FROM Cart</td>";
         echo "</tr>";
     }
     echo "<tr><td></td><td></td><td></td><td></td><td><b>Cart Total:</td>";

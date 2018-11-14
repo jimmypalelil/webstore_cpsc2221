@@ -19,11 +19,11 @@ $productType = $_REQUEST["p"];
 $filterType = $_REQUEST['filterType'];  
 
 if($filterType === 'brand') {    
-    $query = "SELECT DISTINCT brand from product Where type='$productType'";
+    $query = "SELECT DISTINCT brand FROM PRODUCT WHERE type='$productType'";
     $result = $conn->query($query);
     sendRes($result);    
 } else if($filterType === 'colour') {
-    $query = "SELECT DISTINCT colour from product Where type='$productType'";
+    $query = "SELECT DISTINCT colour FROM PRODUCT WHERE type='$productType'";
     $result = $conn->query($query);
     sendRes($result);
 }

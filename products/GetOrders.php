@@ -19,7 +19,7 @@ $orderType = $_REQUEST['ot'];
 $ordering = $_REQUEST['o'];
 $uid = $_REQUEST['uid'];
 
-$orderNoQuery = "SELECT * from orders Where UID = '$uid'
+$orderNoQuery = "SELECT * FROM ORDERS WHERE UID = '$uid'
     order by $orderType $ordering";
 
 $orderNoResult = $conn->query($orderNoQuery);
@@ -33,7 +33,7 @@ if ($orderNoResult->num_rows > 0) {
 $conn->close();
 
 function sendRes($dbResult, $uid, $conn) {
-    //Setup the product display table
+    //Setup the PRODUCT display table
     echo "<table class='table'><tr>";
     echo "<th onclick='getOrders(\"$uid\",\"orderNo\")'>Order #</th>";
     echo "<th>Products</th>";
@@ -41,7 +41,7 @@ function sendRes($dbResult, $uid, $conn) {
     while($row = $dbResult->fetch_assoc()) {
         echo "<tr>";
         echo "<td>".$row['orderNo']."</td>";
-        $productsQuery = "SELECT p.name, ot.quantity, ot.totalPrice from product p, orderitems ot where p.PID = ot.PID and ot.orderNo=". $row['orderNo'];
+        $productsQuery = "SELECT p.name, ot.quantity, ot.totalPrice FROM PRODUCT p, ORDERITEMS ot WHERE p.PID = ot.PID and ot.orderNo=". $row['orderNo'];
         $productResults = $conn->query($productsQuery);
         echo "<td>";
         while($productRow = $productResults->fetch_assoc()) {
