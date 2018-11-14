@@ -62,84 +62,54 @@ function sendRes($dbResult, $productType, $uid) {
     if($dbResult->num_rows > 0) {
         //Setup the PRODUCT display table
         echo "<table class='table'><tr>";
-        echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"name\")'>Name</th>";
-        echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"brand\")'>Brand</th>";
-        echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"colour\")'>Colour</th>";
-        echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"price\")'>Price</th>";
-        echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"storage\")'>Storage</th>";
-        echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"year\")'>Year</th>"; 
-        switch($productType) {
-            case "camera":
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"lens\")'>Lens</th>";
-                break;
-            case "laptop":
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"screen_size\")'>Screen Size</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"ram\")'>RAM</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"cpu\")'>CPU</th>";
-                break;    
-            case "smartwatch":
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"screen_size\")'>Screen Size</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"cpu\")'>CPU</th>";
-                break;  
-            case "cellphone":
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"screen_size\")'>Screen Size</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"ram\")'>RAM</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"cpu\")'>CPU</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"camera\")'>Camera</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"network\")'>Network</th>";
-                break;  
-            case "tablet":
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"screen_size\")'>Screen Size</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"ram\")'>RAM</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"cpu\")'>CPU</th>";
-                echo "<th onclick='getProduct(\"$uid\",\"$productType\",\"camera\")'>Camera</th>";
-                break;
-        }
+        echo "<th></th>";
+        echo "<th>Product Info</th>";        
         echo "<th>Click to Buy</tr>";
         while($row = $dbResult->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>".$row['name']."</td>";
-            echo "<td>".$row['brand']."</td>";
-            echo "<td> ".$row['colour']."</td>";
-            echo "<td>$".$row['price']."</td>";
-            echo "<td>".$row['storage']."</td>";
-            echo "<td>".$row['year']."</td>";    
+            echo "<td><img width='300px' height ='200px' src='/term project/images/products/</b>".$row['PID'].".jpg'></td>";
+            echo "<td><b>Product Name: </b>".$row['name']."<br>";
+            echo "<b>Brand: </b>".$row['brand']."<br>";
+            echo "<b>Colour: </b>".$row['colour']."<br>";
+            echo "<b>Price: $</b>".$row['price']."<br>";
+            echo "<b>Storage Capacity: </b>".$row['storage']."<br>";
+            echo "<b>Year Released: </b>".$row['year']."<br>";    
 
             //Dynamic table view based on PRODUCT Type
             switch($productType) {
                 case "camera":
-                    echo "<td>".$row['lens']."</td>";
+                    echo "<b>Lens Type: </b>".$row['lens']."<br>";
                     break;
                 case "laptop":
-                    echo "<td>".$row['screen_size']."</td>";
-                    echo "<td>".$row['ram']."</td>";
-                    echo "<td>".$row['cpu']."</td>";
+                    echo "<b>Screen Size: </b>".$row['screen_size']."<br>";
+                    echo "<b>RAM: </b>".$row['ram']."<br>";
+                    echo "<b>CPU: </b>".$row['cpu']."<br>";
                     break;    
                 case "smartwatch":
-                    echo "<td>".$row['screen_size']."</td>";
-                    echo "<td>".$row['cpu']."</td>";
+                    echo "<b>Screen Size</b>".$row['screen_size']."<br>";
+                    echo "<b>CPU: </b>".$row['cpu']."<br>";
                     break;  
                 case "cellphone":
-                    echo "<td>".$row['screen_size']."</td>";
-                    echo "<td>".$row['ram']."</td>";
-                    echo "<td>".$row['cpu']."</td>";
-                    echo "<td>".$row['camera']."</td>";
-                    echo "<td>".$row['network']."</td>";
+                    echo "<b>Screen Size: </b>".$row['screen_size']."<br>";
+                    echo "<b>RAM: </b>".$row['ram']."<br>";
+                    echo "<b>CPU: </b>".$row['cpu']."<br>";
+                    echo "<b>Camera: </b>".$row['camera']."<br>";
+                    echo "<b>Network: </b>".$row['network']."<br>";
                     break;  
                 case "tablet":
-                    echo "<td>".$row['screen_size']."</td>";
-                    echo "<td> ".$row['ram']."</td>";
-                    echo "<td>".$row['cpu']."</td>";
-                    echo "<td>".$row['camera']."</td>";
+                    echo "<b>Screen Size: </b>".$row['screen_size']."<br>";
+                    echo "<b>RAM: </b>".$row['ram']."<br>";
+                    echo "<b>CPU: </b>".$row['cpu']."<br>";
+                    echo "<b>Camera: </b>".$row['camera']."<br>";
                     break;
             }
-            
+            echo "</td>";
             echo "<td><button class='btn btn-success' onclick='setProductVars(" .$row['PID']. ",".$uid .")' data-toggle='modal' data-target='#addToCartModal'/>Add To Cart</td>";
             echo "</tr>";
         }
         echo "</table>";
     } else {
-        echo "0 Results";
+        echo "<b>0 Results";
     }
 }
 
