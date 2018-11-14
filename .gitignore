@@ -1,2 +1,4 @@
 /.tmp.drivedownload
 /.tmp.drivedownload/*
+./.vscode
+./.vscode/*
