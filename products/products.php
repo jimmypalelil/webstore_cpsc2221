@@ -16,6 +16,10 @@
         <select id="colourOption" name="colourOption" ng-change="filterColour()" ng-model="colourOptionSelected" ng-options="item.colour for item in colourOptions">
         <option value="">-- Choose Colour Options --</option>
         </select>
+        Storage:
+        <select id="storageOption" name="storageOption" ng-change="filterStorage()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
+        <option value="">-- Choose Storage Options --</option>
+        </select>
         <hr>
     </div>
     <div id="products"></div>

@@ -26,6 +26,10 @@ if($filterType === 'brand') {
     $query = "SELECT DISTINCT colour FROM PRODUCT WHERE type='$productType'";
     $result = $conn->query($query);
     sendRes($result);
+} else if($filterType === 'storage') {
+    $query = "SELECT DISTINCT storage FROM PRODUCT WHERE type='$productType'";
+    $result = $conn->query($query);
+    sendRes($result);
 }
 
 $conn->close();

@@ -45,17 +45,25 @@ app.controller('mainController', ['$scope', '$rootScope', '$routeParams', functi
 app.controller('productController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
     getProduct($routeParams.uid, $routeParams.productType, "name");
 
-          
+    //Get Brand Filters
     var query = "./products/GetFilters.php?p=" + $routeParams.productType;
     query = query + "&filterType" + "=" + 'brand';
     $http.get(query).success(function(data) {
         $scope.brandOptions = data;
     });
 
+    //Get Colour Filters
     var query = "./products/GetFilters.php?p=" + $routeParams.productType;
     query = query + "&filterType" + "=" + 'colour';
     $http.get(query).success(function(data) {
         $scope.colourOptions = data;
+    });
+
+    //Get storage Filters
+    var query = "./products/GetFilters.php?p=" + $routeParams.productType;
+    query = query + "&filterType" + "=" + 'storage';
+    $http.get(query).success(function(data) {
+        $scope.storageOptions = data;
     });
     
     $scope.filterPrice = function() {
@@ -68,6 +76,10 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
 
     $scope.filterColour = function() {
         getColourFilteredProducts($routeParams.uid, $routeParams.productType, $scope.colourOptionSelected.colour);
+    }
+
+    $scope.filterStorage = function() {
+        getColourFilteredProducts($routeParams.uid, $routeParams.productType, $scope.storageOptionSelected.storage);
     }
 
     $scope.priceOptions = [{
