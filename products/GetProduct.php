@@ -87,6 +87,17 @@ if($req === 'all') {
         echo "0 results";
     }
     $conn->close();
+} else if($req === 'filter') {
+    $query = $_REQUEST['q'];    
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        // output data of each row   
+        sendRes($result, $productType, $uid);
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
 }
 
 

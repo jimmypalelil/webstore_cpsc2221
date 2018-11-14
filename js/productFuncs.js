@@ -18,6 +18,25 @@ function getProduct(usid, productType, orderType) {
     };        
 }
 
+function getFilteredProducts(usid, productType, selectQuery) {
+    ordering = ordering === 'asc' ? 'desc' : 'asc';
+    var xmlhttp = new XMLHttpRequest();
+    var query = "./products/GetProduct.php?p=" + productType;
+    query = query + "&ot=name";
+    query = query + "&o=asc";
+    query = query + "&uid=" + usid;
+    query = query + "&req=filter"
+    query = query + "&q=" + selectQuery;
+    xmlhttp.open("GET", query, true);
+    xmlhttp.send();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("products").innerHTML = this.responseText;
+        }
+    };        
+}
+
 function getPriceFilteredProducts(usid, productType, price) {
     ordering = ordering === 'asc' ? 'desc' : 'asc';
     var xmlhttp = new XMLHttpRequest();

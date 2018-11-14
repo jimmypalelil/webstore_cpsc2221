@@ -66,20 +66,46 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
         $scope.storageOptions = data;
     });
     
+    $scope.priceFilterQuery = '', $scope.brandFilterQuery = '', $scope.colourFilterQuery = '', $scope.storageFilterQuery = '';
+
     $scope.filterPrice = function() {
-        getPriceFilteredProducts($routeParams.uid, $routeParams.productType, $scope.priceOptionSelected.id);
+        if($scope.priceOptionSelected != null) {
+            $scope.priceFilterQuery = " AND price < '" + $scope.priceOptionSelected.id + "'";    
+        } else {
+            $scope.priceFilterQuery = '';
+        }
+        $scope.query = "SELECT * FROM PRODUCT WHERE type = '" + $routeParams.productType + "'" + $scope.priceFilterQuery + $scope.brandFilterQuery + $scope.colourFilterQuery + $scope.storageFilterQuery + ";";
+        getFilteredProducts($routeParams.uid, $routeParams.productType, $scope.query);
     }
 
     $scope.filterBrand = function() {
-        getBrandFilteredProducts($routeParams.uid, $routeParams.productType, $scope.brandOptionSelected.brand);
+        if($scope.brandOptionSelected != null) {
+            $scope.brandFilterQuery = " AND brand = '" + $scope.brandOptionSelected.brand + "'";
+        } else {
+            $scope.brandFilterQuery = '';
+        }
+        $scope.query = "SELECT * FROM PRODUCT WHERE type = '" + $routeParams.productType + "'" + $scope.priceFilterQuery + $scope.brandFilterQuery + $scope.colourFilterQuery + $scope.storageFilterQuery + ";";        
+        getFilteredProducts($routeParams.uid, $routeParams.productType, $scope.query);
     }
 
     $scope.filterColour = function() {
-        getColourFilteredProducts($routeParams.uid, $routeParams.productType, $scope.colourOptionSelected.colour);
+        if($scope.colourOptionSelected != null) {
+            $scope.colourFilterQuery = " AND colour = '" + $scope.colourOptionSelected.colour + "'";
+        } else {
+            $scope.colourFilterQuery = '';
+        }
+        $scope.query = "SELECT * FROM PRODUCT WHERE type = '" + $routeParams.productType + "'" + $scope.priceFilterQuery + $scope.brandFilterQuery + $scope.colourFilterQuery + $scope.storageFilterQuery + ";";
+        getFilteredProducts($routeParams.uid, $routeParams.productType, $scope.query);
     }
 
     $scope.filterStorage = function() {
-        getStorageFilteredProducts($routeParams.uid, $routeParams.productType, $scope.storageOptionSelected.storage);
+        if($scope.storageOptionSelected != null) {
+            $scope.storageFilterQuery = " AND storage = '" + $scope.storageOptionSelected.storage + "'";
+        } else {
+            $scope.storageFilterQuery = '';
+        }
+        $scope.query = "SELECT * FROM PRODUCT WHERE type = '" + $routeParams.productType + "'" + $scope.priceFilterQuery + $scope.brandFilterQuery + $scope.colourFilterQuery + $scope.storageFilterQuery + ";";
+        getFilteredProducts($routeParams.uid, $routeParams.productType, $scope.query);
     }
 
     $scope.priceOptions = [{
