@@ -50,8 +50,8 @@ if($req === 'all') {
     $conn->close();
 }else if($req === 'filterBrand') {
     $brand = $_REQUEST['brand'];
-    $query = "SELECT * FROM PRODUCT WHERE type='$productType' and brand = '$brand'
-        order by $orderingType $ordering";
+    $query = "SELECT * FROM PRODUCT WHERE type='$productType' AND brand = '$brand'
+        ORDER BY $orderingType $ordering";
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
@@ -63,8 +63,21 @@ if($req === 'all') {
     $conn->close();
 } else if($req === 'filterColour') {
     $colour = $_REQUEST['colour'];
-    $query = "SELECT * FROM PRODUCT WHERE type='$productType' and colour = '$colour'
-        order by $orderingType $ordering";
+    $query = "SELECT * FROM PRODUCT WHERE type='$productType' AND colour = '$colour'
+        ORDER BY $orderingType $ordering";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        // output data of each row   
+        sendRes($result, $productType, $uid);
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+} else if($req === 'filterStorage') {
+    $storage = $_REQUEST['storage'];
+    $query = "SELECT * FROM PRODUCT WHERE type='$productType' AND storage = '$storage'
+        ORDER BY $orderingType $ordering";
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {

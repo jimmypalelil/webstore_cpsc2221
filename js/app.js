@@ -79,7 +79,7 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
     }
 
     $scope.filterStorage = function() {
-        getColourFilteredProducts($routeParams.uid, $routeParams.productType, $scope.storageOptionSelected.storage);
+        getStorageFilteredProducts($routeParams.uid, $routeParams.productType, $scope.storageOptionSelected.storage);
     }
 
     $scope.priceOptions = [{
