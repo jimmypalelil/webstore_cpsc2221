@@ -21,12 +21,12 @@ function loginUser() {
 
 function logout() {
     var xmlhttp = new XMLHttpRequest();
-    var query = "/term\ project/UserAction.php?req=logout";
+    var query = "UserAction.php?req=logout";
     xmlhttp.open("POST", query, true);
     xmlhttp.send();  
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            location.href="/term\ project/index.php";
+            location.href="index.php";
         }
     }; 
 }
