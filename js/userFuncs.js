@@ -30,3 +30,20 @@ function logout() {
         }
     }; 
 }
+
+function registerUser(email, password, firstName, lastName, address) {
+    var xmlhttp = new XMLHttpRequest();
+    var query = "/term\ project/UserAction.php?req=register";
+    query = query + "&email=" + email;
+    query = query + "&password=" + password;
+    query = query + "&firstName=" + firstName;
+    query = query + "&lastName=" + lastName;
+    query = query + "&address=" + address;
+    xmlhttp.open("POST", query, true);
+    xmlhttp.send();     
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+        }
+    }; 
+}

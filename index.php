@@ -131,7 +131,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="registerUser()">Add</button>
+					<button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="registerUser()">Add</button>
 				</div>
 			</form>
 		</div>

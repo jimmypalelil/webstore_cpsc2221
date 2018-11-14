@@ -5,19 +5,19 @@
 <div ng-app="myApp" ng-controller="productController">
     <div>
         Price:
-        <select id="priceOption" name="priceOption" ng-change="filterPrice()" ng-model="priceOptionSelected" ng-options="item.label for item in priceOptions">
+        <select id="priceOption" name="priceOption" ng-change="filterProducts()" ng-model="priceOptionSelected" ng-options="item.label for item in priceOptions">
         <option value="">-- Choose Price Options --</option>
         </select>
         Brand:
-        <select id="brandOption" name="brandOption" ng-change="filterBrand()" ng-model="brandOptionSelected" ng-options="item.brand for item in brandOptions">
+        <select id="brandOption" name="brandOption" ng-change="filterProducts()" ng-model="brandOptionSelected" ng-options="item.brand for item in brandOptions">
         <option value="">-- Choose Brand Options --</option>
         </select>
         Colour:
-        <select id="colourOption" name="colourOption" ng-change="filterColour()" ng-model="colourOptionSelected" ng-options="item.colour for item in colourOptions">
+        <select id="colourOption" name="colourOption" ng-change="filterProducts()" ng-model="colourOptionSelected" ng-options="item.colour for item in colourOptions">
         <option value="">-- Choose Colour Options --</option>
         </select>
         Storage:
-        <select id="storageOption" name="storageOption" ng-change="filterStorage()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
+        <select id="storageOption" name="storageOption" ng-change="filterProducts()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
         <option value="">-- Choose Storage Options --</option>
         </select>
         <hr>
