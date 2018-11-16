@@ -1,16 +1,24 @@
 header, nav, main, footer { display: block; }
-body { font-family:Verdana, Arial, sans-serif;
+body { font-family:Arial,"Helvetica Neue",sans-serif;
 }
 
-#wrapper { 	margin: auto;
-	margin-top: 110px;
-			width: 80%;
-		background-color: #FFFFFF;
+body, html {
+  height: 100%;
+  margin: 0px auto;
+  padding: 0px auto;
 }
 
-#rightcollum { float: right;
+#wrapper {  margin: 0px auto;
+  padding: 0px auto;
+  height: auto;
+  min-height: 100%;
+  background-color: #D6DADE;
+}
+
+#leftcollum { float: left;
 	width: 150px;
 	padding: 20px;
+	margin: 0px 200px 0px 0px;
 }
 
 li { padding: 7px;
@@ -29,20 +37,28 @@ body { background-color: #FFFFFF;
 			background-image: url("images/appleprods.jpg");
 			background-repeat: no-repeat;
 			background-attachment: fixed;
-           color: #ccd9ff;
-		   font-family: Arial, Helvetica, sans-serif;
+           color: #152C42;
+		   font-family: Arial,"Helvetica Neue",sans-serif;
 }
 
 header {
-	background-image: url("images/bgbanner.jpg");
+	background-image: url("images/tech1.jpg");
 	background-repeat: no-repeat;
-	background-color: #febee5;
+	background-color: #000000;
 	background-position: left;
-	height: 50%;
-	padding: 5%;
+	height: 5%;
+	padding: 10px;
 	/*background-position: bottom;*/
 }
 
+input[type="checkbox"]{
+  display:inline-block;
+  float: left;
+}
+
+label{
+	display: inline-block;
+}
 
 h1 {
 	padding-top: 20px;
@@ -61,8 +77,9 @@ nav ul { margin: 0; padding: 0;
 }*/
 
 
-nav { /*font-weight: bold;*/
-	background-color: #2E4053;
+nav { font-weight: bold;
+	/*background-color: #2E4053;*/
+		background-color: #08294c;
 		text-decoration: none;
 		text-align: right;
 		padding-bottom: 1px;
@@ -79,10 +96,10 @@ nav a {text-decoration: none;
 	
 
 .dropbtn {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial,"Helvetica Neue",sans-serif;
     font-size: 16px;
-	/*font-weight: bold;*/
-	background-color: #2E4053;
+	font-weight: bold;
+	background-color: #08294c;
 		text-decoration: none;
     border: none;
     cursor: pointer;
@@ -119,7 +136,7 @@ nav a {text-decoration: none;
 
 
 .dropdown:hover .dropbtn {
-    background-color: #2E4053;
+    background-color: #1B2B6B;
 }
 
 button { color: #FFFFFF;
@@ -130,14 +147,17 @@ main {
         padding: 20px; 
         background-color: #FFFFFF;
         color: #1C2833;
-		margin-top: 5px;
+		margin-left: 210px;
 		/*margin-right: 180px;*/
 }
 
-img {
-	padding-left: 1em;
-	padding-right: 1em;
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /*background-color: #FFFFFF;*/
+  padding: 10px;
 }
+
 
 figure { margin: 10px;
               float: bottom;}
@@ -158,35 +178,145 @@ input, textarea { display: block; margin-bottom: 1em;
 #mySubmit { margin-left: 9.5em;
 }
 
+/*TOOLTIP CODE STARTS HERE*/
 
-.photo-left {
-	float: left;
-	padding: 0 20px 20px 0;
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
 }
 
-.photo-left img {
-	display: block;
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #797D7F;
+    color: #000000;
+    text-align: center;
+    padding: 5px 0;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
 }
 
-.photo-right {
-	float: right;
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+/*Tooltip ends*/
+
+/*SLIDESHOW CODE STARTS HERE*/
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-.photo-right img {
-	display: block;
+/* Hide the images by default */
+.mySlides {
+    display: none;
 }
 
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+/*ends*/
 
 
 footer { /*background-color: #ff4da6;*/
-				background-color: #2E4053;
-				font-size: 70%;
-				font-style: italic;
-				text-align: center;
-				clear: left;
-				color: #FFFFFF;
-				height: 15px;
-				padding: 0.5em;
+	background-color: #08294c;
+	font-size: 70%;
+	font-style: italic;
+	text-align: center;
+	clear: left;
+	color: #FFFFFF;
+	height: 25px;
+	padding: 0.5em;
 
 }
 
@@ -196,9 +326,6 @@ footer { /*background-color: #ff4da6;*/
 @media only screen and (max-width: 1024px) {
    body { margin: 0; }
    #wrapper { width: auto; } 
-   #restaurant { width: auto; }
-   #themepark {width: auto; }
-   	#rightcollum {width: none;}
    main { margin-left: 0; margin-right: 0;}
    nav { float: none; width: auto; }
    nav li { display: inline-block; padding: 0.5em; }
@@ -208,7 +335,6 @@ footer { /*background-color: #ff4da6;*/
    p { font-size: 90%; } }
 
 @media only screen and (max-width: 768px) {
-	#rightcollum {display: none;}
 	header {display: none; }
      h1 { font-size: 100%; }
 	 p { font-size: 90%; }
@@ -216,8 +342,8 @@ footer { /*background-color: #ff4da6;*/
 	 nav, nav ul, nav li { padding: 0;  }
 	 nav li { display: block; } 
      nav a { display: block;  padding: 0.5em 0;
-               border-bottom: 2px ridge #00005D; }	
-	nav img { display: none;}
+               border-bottom: 2px ridge #1B2B6B; }	
+	.prev, .next,.text {font-size: 11px}
 }
 
 a, th {

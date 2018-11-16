@@ -1,6 +1,6 @@
 var app = angular.module('myApp', ['ngRoute']);
 
-app.config(function($routeProvider) {
+app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when("/products/:pageType/:productType/:uid", {
             templateUrl: './products/productsView.php',
@@ -13,8 +13,16 @@ app.config(function($routeProvider) {
         .when("/usr/:pageType/:uid", {
             templateUrl: './products/productsView.php',
             controller: 'productController'
+        })
+        .when("/", {
+            templateUrl: 'home.php',
+            controller: 'homeController'
         });
-});
+}]);
+
+app.controller('homeController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
+    $scope.imageNames = ['christmas.jpg', 'deals.jpg', 'shipping.jpg'];
+}]);
 
 app.controller('mainController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
     $rootScope.pageType = $routeParams.pageType;

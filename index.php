@@ -64,7 +64,8 @@
 
 <main>
 	
-<div ng-view></div>
+<div ng-view>	
+</div>
 
 </main>
 
