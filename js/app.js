@@ -10,13 +10,8 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: './products/productsView.php',
             controller: 'productController'
         })
-        .when("/usr/:pageType/:uid", {
-            templateUrl: './products/productsView.php',
-            controller: 'productController'
-        })
         .when("/", {
-            templateUrl: 'home.php',
-            controller: 'homeController'
+            templateUrl: 'home.php'
         })
         .when("/usr/admin", {
             templateUrl: 'admin.php',
@@ -84,7 +79,7 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
 app.controller('mainController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
     $rootScope.pageType = $routeParams.pageType;
     $rootScope.uid = $routeParams.uid;    
-    $rootScope.isAdmin = $rootScope.uid === 1;
+   
 
     $scope.registerUser = function() {
         registerUser($scope.email, $scope.password,$scope.firstName, $scope.lastName, $scope.address);
@@ -93,6 +88,10 @@ app.controller('mainController', ['$scope', '$rootScope', '$routeParams', functi
 
 app.controller('productController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
     $scope.showFilters = false;
+
+     $rootScope.isAdmin = $routeParams.uid == 1;
+     console.log($rootScope.isAdmin);
+     console.log($routeParams.uid);
 
     if($routeParams.pageType == 'products') {
         $scope.showFilters = true;

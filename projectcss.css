@@ -144,9 +144,9 @@ button { color: #FFFFFF;
 	
 
 main {
-        padding: 20px; 
-        background-color: #FFFFFF;
-        color: #1C2833;
+    padding: 20px; 
+    background-color: #FFFFFF;
+    color: #1C2833;
 		margin-left: 210px;
 		/*margin-right: 180px;*/
 }
@@ -154,9 +154,8 @@ main {
 .grid-container {   
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: slategrey;
   padding: 10px;
-  color: white;
+  background-color: lightgray;
 }
 
 

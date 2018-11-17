@@ -13,7 +13,7 @@ function loginUser() {
     xmlhttp.send();     
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var responseCode = this.responseText;
+            window.location.replace("#/products/products/camera/" + this.responseText);
             location.reload();
         }
     }; 

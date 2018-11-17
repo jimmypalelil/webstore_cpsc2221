@@ -56,7 +56,7 @@
 					</div>';
 			echo '<a href="#/usr/shoppingCart/'.$_SESSION['UID'].'"><i class="fas fa-shopping-cart"></i> Shopping Cart</a>';
 			echo '<a href="#/usr/orders/'.$_SESSION['UID'].'"><i class="far fa-list-alt"></i> Orders</a>';
-			echo '<a ng=show="{{isAdmin}}" href=#/usr/admin><i class="fas fa-user-shield"></i> ADMIN</a>';
+			echo '<a ng-show="isAdmin" href=#/usr/admin><i class="fas fa-user-shield"></i> ADMIN</a>';
 			echo '<a data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i> Logout</a>';
 		}	else {
 			echo "<a data-toggle='modal' data-target='#loginModal'><i class='fas fa-sign-in-alt'></i> Login</a>";

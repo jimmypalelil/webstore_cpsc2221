@@ -50,7 +50,7 @@ if($_REQUEST['req'] === 'logout') {
         if($row['password'] == $password) {            
             $_SESSION['email'] = $email;
             $_SESSION['UID'] = $row['UID'];
-            echo "1"; //success
+            echo $_SESSION['UID']; //success
         } else {
             echo 0; //Login failed
         }
