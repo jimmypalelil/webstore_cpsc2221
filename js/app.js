@@ -29,10 +29,8 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
         return "GetAdminData.php?t=" + tableName;
     }
 
-    $scope.table = $scope.users;
-
     $scope.setTableType = function(tableType) {
-        if(tableType === 'Get USERS') {
+        if(tableType === 'Get USERS') {            
             $scope.table = $scope.users;
         }
         if(tableType === 'Get PRODUCTS')
@@ -51,7 +49,7 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
 
     $scope.views = ['Get USERS', 'Get PRODUCTS', 'Get ORDERS', 'Get Most Popular Brands', 'Get Most Popular Products'];
 
-    $http.get(makeAdminURL("USERS")).success(function(data) {$scope.users = data;});
+    $http.get(makeAdminURL("USERS")).success(function(data) {$scope.users = data; $scope.table = $scope.users; $scope.setButton('Get USERS')});
     $http.get(makeAdminURL("PRODUCT")).success(function(data) {$scope.products = data;});
     $http.get(makeAdminURL("ORDERS")).success(function(data) {$scope.orders = data;});
     $http.get(makeAdminURL("popularBrands")).success(function(data) {$scope.popBrands = data;});

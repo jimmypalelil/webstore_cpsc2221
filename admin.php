@@ -7,7 +7,7 @@
 
 <table class="table">
 <tr>
-    <th ng-repeat="(key, index) in table[0]">{{key}}</th>
+    <th ng-repeat="(key, index) in table[0]">{{key | uppercase}}</th>
 </tr>
 <tr ng-repeat="item in table">
     <td ng-repeat="(key,value) in item">{{value}}</td>
