@@ -4,7 +4,7 @@
 </div>
 <hr class="my-4">
 
-<table class="table">
+<table class="table table-hover table-striped table-bordered">
 <tr>
     <th ng-repeat="(key, value) in table[0]">{{key | uppercase}}</th>
     <th ng-show="tableType=='Get PRODUCTS'">EDIT</th>
