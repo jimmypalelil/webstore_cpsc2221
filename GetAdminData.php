@@ -44,8 +44,8 @@ if($tableType === 'USERS') {
     if($result)
         echo "Price changed successfully";
 } else if ($tableType === 'avgPrices') {    
-    $query = "SELECT  brand, AVG(price) AS average, SUM(price) as total, COUNT(*) as 'total products', 
-        MAX(price) as 'max price', MIN(price) as 'min price' FROM PRODUCT GROUP BY brand";
+    $query = "SELECT  brand AS BRAND, COUNT(*) AS 'total products', AVG(price) AS average, SUM(price) as 'total price', 
+        MAX(price) AS 'max price', MIN(price) AS 'min price' FROM PRODUCT GROUP BY brand";
     $result = $conn->query($query);
     sendRes($result);
 }
