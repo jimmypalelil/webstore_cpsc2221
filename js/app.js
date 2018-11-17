@@ -36,21 +36,22 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
             $scope.table = $scope.popBrands;
         if(tableType === 'Get Most Popular Products')
             $scope.table = $scope.popProducts;
-        if(tableType === 'Get Price Stats By Brand') {
-            $scope.table = $scope.avgPrices;
-            console.log($scope.table);
-        }
+        if(tableType === 'Get Price Stats By Brand') 
+            $scope.table = $scope.avgPrices;        
     }
 
+    //The table to view
     $scope.setButton = function(button) {
         $scope.selectedButton = button;        
     }
 
+    //set the item for update modal
     $scope.setUpdateItem = function(item) {        
         $scope.updateItem = item;
     }
 
-    $scope.updateEntry = function(price) {
+    //Update Price entry
+    $scope.updateEntry = function() {
         var url = makeAdminURL("updatePrice");
         url = url + "&pid=" + $scope.updateItem.PID;
         url = url + "&price=" + $scope.newPrice;

@@ -1,17 +1,17 @@
 <div class="slideshow-container">
 
   <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
+  <div class="mySlides myFade">
     <div class="numbertext">1 / 3</div>
     <img src="images/christmas.jpg" style="width:100%">
   </div>
 
-  <div class="mySlides fade">
+  <div class="mySlides myFade">
     <div class="numbertext">2 / 3</div>
     <img src="images/deals.jpg" style="width:100%">
   </div>
 
-  <div class="mySlides fade">
+  <div class="mySlides myFade">
     <div class="numbertext">3 / 3</div>
     <img src="images/shipping.jpg" style="width:100%">
   </div>
@@ -43,22 +43,22 @@
 	  showSlides(slideIndex = n);
 	}
 
-	function showSlides(n) {
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
+  function showSlides(n) {
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
 
-        if(n > slides.length)
-            slideIndex = 1;
-        if(n < 0)
-            slideIndex = slides.length;
+    if(n > slides.length)
+      slideIndex = 1;
+    if(n == 0)
+      slideIndex = slides.length;
 
-        for (var i = 0; i < slides.length; i++)            
-            slides[i].style.display = "none";         
+    for (var i = 0; i < slides.length; i++)            
+      slides[i].style.display = "none";         
 
-        for (var i = 0; i < dots.length; i++)         
-            dots[i].className = dots[i].className.replace(" active", "");   
-                
-        slides[slideIndex-1].style.display = "block"; 
-        dots[slideIndex-1].className += " active";
-	}
+    for (var i = 0; i < dots.length; i++)         
+      dots[i].className = dots[i].className.replace(" active", "");   
+          
+    slides[slideIndex-1].style.display = "block"; 
+    dots[slideIndex-1].className += " active";
+  }
 </script>

@@ -288,19 +288,19 @@ input, textarea { display: block; margin-bottom: 1em;
 }
 
 /* Fading animation */
-.fade {
+.myFade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
-  animation-name: fade;
+  animation-name: myFade;
   animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade {
+@-webkit-keyframes myFade {
   from {opacity: .4} 
   to {opacity: 1}
 }
 
-@keyframes fade {
+@keyframes myFade {
 	from {opacity: .4} 
 	to {opacity: 1}
 }
@@ -343,7 +343,8 @@ footer { /*background-color: #ff4da6;*/
 	.prev, .next,.text {font-size: 11px}
 }
 
-a, th {
+/* Jimmy's CSS changes */
+a, th { 
   cursor: pointer;
   text-decoration: none !important;
 }
