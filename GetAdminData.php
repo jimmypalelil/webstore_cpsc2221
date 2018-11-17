@@ -21,7 +21,7 @@ if($tableType === 'USERS') {
     $result = $conn->query($query);
     sendRes($result);    
 } else if($tableType === 'PRODUCT') {
-    $query = "SELECT * FROM PRODUCT";
+    $query = "SELECT * FROM PRODUCT ORDER BY name";
     $result = $conn->query($query);
     sendRes($result);
 } else if($tableType === 'ORDERS') {

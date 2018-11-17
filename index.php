@@ -16,8 +16,8 @@
 	<!-- Bootstrap END -->
 
 	<!-- Angular -->
-	<script src="https://code.angularjs.org/1.3.0-rc.5/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.3.0-rc.5/angular-route.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.0-rc.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
 
 	<script src="js/app.js"></script>
 	<!-- Angular END -->
@@ -39,7 +39,7 @@
 		session_start();
 		if($_SESSION) echo "<p><i class='fas fa-user-tie'></i> Hi, ".$_SESSION['email']. "</p>";
 	?>
-	<a href="index.php"><i class="fas fa-home"></i> Home</a>
+	<a href="#/"><i class="fas fa-home"></i> Home</a>
 	
 	<?php
 		if($_SESSION) {
