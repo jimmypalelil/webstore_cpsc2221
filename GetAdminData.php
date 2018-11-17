@@ -25,11 +25,11 @@ if($tableType === 'USERS') {
     $result = $conn->query($query);
     sendRes($result);
 } else if($tableType === 'ORDERS') {
-    $query = "SELECT * FROM ORDERS";
+    $query = "SELECT orderNo AS 'ORDER #', UID AS 'USER ID', orderDate as 'order date', totalPrice as 'total price'  FROM ORDERS";
     $result = $conn->query($query);
     sendRes($result);
 } else if($tableType === 'popularBrands') {
-    $query = "SELECT p.brand as 'brand (bought by every user)'
+    $query = "SELECT DISTINCT p.brand as 'brand (bought by every user)'
         FROM PRODUCT p
         WHERE NOT EXISTS
         (SELECT * FROM USERS u
