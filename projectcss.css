@@ -344,7 +344,8 @@ footer { /*background-color: #ff4da6;*/
 }
 
 a, th {
-	cursor: pointer;
+  cursor: pointer;
+  text-decoration: none !important;
 }
 
 .adminButtons {
