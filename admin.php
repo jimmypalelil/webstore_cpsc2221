@@ -4,11 +4,13 @@
 </div>
 <hr class="my-4">
 
-<table class="table table-hover table-striped table-bordered">
-<tr>
-    <th ng-repeat="(key, value) in table[0]">{{key | uppercase}}</th>
-    <th ng-show="tableType=='Get PRODUCTS'">EDIT</th>
-</tr>
+<table class="table table-hover table-striped table-bordered table-condensed">
+<thead class="thead-dark">
+    <tr>
+        <th ng-repeat="(key, value) in table[0]">{{key | uppercase}}</th>
+        <th ng-show="tableType=='Get PRODUCTS'">EDIT</th>
+    </tr>
+</thead>
 <tr ng-repeat="item in table">
     <td ng-repeat="(key,value) in item">{{value}}</td>
     <td ng-show="tableType=='Get PRODUCTS'"><a data-toggle="modal" data-target="#updateModal" ng-click="setUpdateItem(item)"><i class="fas fa-edit"></i></a>

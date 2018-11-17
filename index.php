@@ -37,30 +37,30 @@
 <nav>
 	<?php
 		session_start();
-		if($_SESSION) echo "<p>Hi, ".$_SESSION['email']. "</p>";
+		if($_SESSION) echo "<p><i class='fas fa-user-tie'></i> Hi, ".$_SESSION['email']. "</p>";
 	?>
-	<a href="index.php">Home</a>
+	<a href="index.php"><i class="fas fa-home"></i> Home</a>
 	
 	<?php
 		if($_SESSION) {
 			echo '
 						<div class="dropdown">
-						<button class="dropbtn">Products</button>
+						<button class="dropbtn"><i class="fas fa-boxes"></i> Products</button>
 						<div class="dropdown-content">
-							<a href="#/products/products/camera/'.$_SESSION['UID'].'">Cameras</a>
-							<a href="#/products/products/laptop/'.$_SESSION['UID'].'">Laptops</a>
-							<a href="#/products/products/cellphone/'.$_SESSION['UID'].'">Cellphones</a>
-							<a href="#/products/products/tablet/'.$_SESSION['UID'].'">Tablets</a>
-							<a href="#/products/products/smartwatch/'.$_SESSION['UID'].'">Smartwatches</a>
+						<a href="#/products/products/camera/'.$_SESSION['UID'].'"><i class="fas fa-camera-retro"></i> Cameras</a>
+						<a href="#/products/products/laptop/'.$_SESSION['UID'].'"><i class="fas fa-laptop"></i> Laptops</a>
+						<a href="#/products/products/cellphone/'.$_SESSION['UID'].'"><i class="fas fa-mobile-alt"></i> Cellphones</a>
+						<a href="#/products/products/tablet/'.$_SESSION['UID'].'"><i class="fas fa-tablet-alt"></i> Tablets</a>
+						<a href="#/products/products/smartwatch/'.$_SESSION['UID'].'"><i class="far fa-clock"></i> Smartwatches</a>
 						</div>	
 					</div>';
-			echo '<a href="#/usr/shoppingCart/'.$_SESSION['UID'].'">Shopping Cart</a>';
-			echo '<a href="#/usr/orders/'.$_SESSION['UID'].'">Orders</a>';
-			echo '<a ng=show="{{isAdmin}}" href=#/usr/admin>ADMIN</a>';
-			echo "<a data-toggle='modal' data-target='#logoutModal'>Logout</a>";
+			echo '<a href="#/usr/shoppingCart/'.$_SESSION['UID'].'"><i class="fas fa-shopping-cart"></i> Shopping Cart</a>';
+			echo '<a href="#/usr/orders/'.$_SESSION['UID'].'"><i class="far fa-list-alt"></i> Orders</a>';
+			echo '<a ng=show="{{isAdmin}}" href=#/usr/admin><i class="fas fa-user-shield"></i> ADMIN</a>';
+			echo '<a data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i> Logout</a>';
 		}	else {
-			echo "<a data-toggle='modal' data-target='#loginModal'>Login</a>";
-			echo "<a data-toggle='modal' data-target='#registerModal'>Register</a>";
+			echo "<a data-toggle='modal' data-target='#loginModal'><i class='fas fa-sign-in-alt'></i> Login</a>";
+			echo "<a data-toggle='modal' data-target='#registerModal'><i class='fas fa-user-plus'></i> Register</a>";
 		}
 	?>	
 </nav>

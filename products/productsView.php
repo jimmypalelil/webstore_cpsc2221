@@ -5,20 +5,21 @@
 <div ng-app="myApp" ng-controller="productController">
     <div id="leftcollum" ng-show="{{showFilters}}">
         <h3>Filters</h3>
-        Price        
-        <select id="priceOption" name="priceOption" ng-change="filterProducts()" ng-model="priceOptionSelected" ng-options="item.label for item in priceOptions">
+        Price
+        <!-- <label for="priceOption" class="input-group-text">        -->
+        <select class="custom-select" style="width: 210%;" id="priceOption" name="priceOption" ng-change="filterProducts()" ng-model="priceOptionSelected" ng-options="item.label for item in priceOptions">
         <option value="">-- Choose Price Options --</option>
         </select>
         Brand
-        <select id="brandOption" name="brandOption" ng-change="filterProducts()" ng-model="brandOptionSelected" ng-options="item.brand for item in brandOptions">
+        <select class="custom-select" style="width: 210%;" id="brandOption" name="brandOption" ng-change="filterProducts()" ng-model="brandOptionSelected" ng-options="item.brand for item in brandOptions">
         <option value="">-- Choose Brand Options --</option>
         </select>
         Colour
-        <select id="colourOption" name="colourOption" ng-change="filterProducts()" ng-model="colourOptionSelected" ng-options="item.colour for item in colourOptions">
+        <select class="custom-select" style="width: 210%;" id="colourOption" name="colourOption" ng-change="filterProducts()" ng-model="colourOptionSelected" ng-options="item.colour for item in colourOptions">
         <option value="">-- Choose Colour Options --</option>
         </select>
         Storage
-        <select id="storageOption" name="storageOption" ng-change="filterProducts()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
+        <select class="custom-select" style="width: 210%;" id="storageOption" name="storageOption" ng-change="filterProducts()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
         <option value="">-- Choose Storage Options --</option>
         </select>
         <hr>
