@@ -1,5 +1,4 @@
-/.tmp.drivedownload
-/.tmp.drivedownload/*
-./.vscode
-./.vscode/*
-/cache
+.tmp.drivedownload
+.vscode
+cache
+sample.php

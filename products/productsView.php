@@ -3,26 +3,30 @@
 ?>
 
 <div ng-app="myApp" ng-controller="productController">
-    <div ng-show="{{showFilters}}">
-        Price:
+    <div id="leftcollum" ng-show="{{showFilters}}">
+        <h3>Filters</h3>
+        Price        
         <select id="priceOption" name="priceOption" ng-change="filterProducts()" ng-model="priceOptionSelected" ng-options="item.label for item in priceOptions">
         <option value="">-- Choose Price Options --</option>
         </select>
-        Brand:
+        Brand
         <select id="brandOption" name="brandOption" ng-change="filterProducts()" ng-model="brandOptionSelected" ng-options="item.brand for item in brandOptions">
         <option value="">-- Choose Brand Options --</option>
         </select>
-        Colour:
+        Colour
         <select id="colourOption" name="colourOption" ng-change="filterProducts()" ng-model="colourOptionSelected" ng-options="item.colour for item in colourOptions">
         <option value="">-- Choose Colour Options --</option>
         </select>
-        Storage:
+        Storage
         <select id="storageOption" name="storageOption" ng-change="filterProducts()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
         <option value="">-- Choose Storage Options --</option>
         </select>
         <hr>
     </div>
-    <div id="products"></div>
+
+    <!-- Product Table gets inserted here -->
+    <div class="grid-container" id="products"></div>
+    <!-- End of product table -->
 
     <div class="modal fade" id="addToCartModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
