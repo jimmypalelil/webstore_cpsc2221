@@ -4,15 +4,14 @@
 </div>
 <hr class="my-4">
 
-
 <table class="table">
 <tr>
-    <th ng-repeat="(key, index) in table[0]">{{key | uppercase}}</th>
-    <th>EDIT</th>
+    <th ng-repeat="(key, value) in table[0]">{{key | uppercase}}</th>
+    <th ng-show="tableType=='Get PRODUCTS'">EDIT</th>
 </tr>
 <tr ng-repeat="item in table">
     <td ng-repeat="(key,value) in item">{{value}}</td>
-    <td><a data-toggle="modal" data-target="#updateModal" ng-click="setUpdateItem(item)"><i class="fas fa-edit"></i></a>
+    <td ng-show="tableType=='Get PRODUCTS'"><a data-toggle="modal" data-target="#updateModal" ng-click="setUpdateItem(item)"><i class="fas fa-edit"></i></a>
 </tr>
 </table>
 
@@ -29,7 +28,7 @@
 				<div class="modal-body">         
                     <div class="form-group" ng-repeat="(key, value) in updateItem">
                         <label for={{key}}>{{key | uppercase}}</label>
-                        <input ng-disabled="$index==0" value={{value}} />
+                        <input ng-disabled="key!=='price'" value={{value}} ng-change="setUpdatePrice(value)" ng-model="value" />
                     </div>         
 				</div>
 				<div class="modal-footer">

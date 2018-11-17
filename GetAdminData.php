@@ -36,6 +36,18 @@ if($tableType === 'USERS') {
     $query = "SELECT * FROM ORDERS";
     $result = $conn->query($query);
     sendRes($result);
+} else if ($tableType === 'updatePrice') {
+    $pid = $_REQUEST['pid'];
+    $price = $_REQUEST['price'];
+    $query = "UPDATE PRODUCT SET price='$price' WHERE PID='$pid'";
+    $result = $conn->query($query);
+    if($result)
+        echo "Price changed successfully";
+} else if ($tableType === 'avgPrices') {    
+    $query = "SELECT  brand, AVG(price) AS average, SUM(price) as total, COUNT(*) as 'total products', 
+        MAX(price) as 'max price', MIN(price) as 'min price' FROM PRODUCT GROUP BY brand";
+    $result = $conn->query($query);
+    sendRes($result);
 }
 
 $conn->close();

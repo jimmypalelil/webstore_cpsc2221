@@ -30,9 +30,9 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
     }
 
     $scope.setTableType = function(tableType) {
-        if(tableType === 'Get USERS') {            
-            $scope.table = $scope.users;
-        }
+        $scope.tableType = tableType;
+        if(tableType === 'Get USERS')       
+            $scope.table = $scope.users;        
         if(tableType === 'Get PRODUCTS')
             $scope.table = $scope.products;
         if(tableType === 'Get ORDERS')
@@ -41,25 +41,44 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
             $scope.table = $scope.popBrands;
         if(tableType === 'Get Most Popular Products')
             $scope.table = $scope.popProducts;
+        if(tableType === 'Get Price Stats By Brand') {
+            $scope.table = $scope.avgPrices;
+            console.log($scope.table);
+        }
     }
 
     $scope.setButton = function(button) {
         $scope.selectedButton = button;        
     }
 
-    $scope.setUpdateItem = function(item) {
-        
+    $scope.setUpdateItem = function(item) {        
         $scope.updateItem = item;
-        console.log($scope.updateItem);
     }
 
-    $scope.views = ['Get USERS', 'Get PRODUCTS', 'Get ORDERS', 'Get Most Popular Brands', 'Get Most Popular Products'];
+    $scope.updateEntry = function(price) {
+        var url = makeAdminURL("updatePrice");
+        url = url + "&pid=" + $scope.updateItem.PID;
+        url = url + "&price=" + $scope.newPrice;
+        $http.post(url).success(function(data) {
+            alert(data);
+        });  
+    }
+
+    $scope.setUpdatePrice =function(price) {
+        $scope.newPrice = price;
+        $scope.updateItem.price = price;
+    } 
+
+    $scope.views = ['Get USERS', 'Get PRODUCTS', 'Get ORDERS',
+         'Get Most Popular Brands', 'Get Most Popular Products',
+                'Get Price Stats By Brand'];
 
     $http.get(makeAdminURL("USERS")).success(function(data) {$scope.users = data; $scope.table = $scope.users; $scope.setButton('Get USERS')});
     $http.get(makeAdminURL("PRODUCT")).success(function(data) {$scope.products = data;});
     $http.get(makeAdminURL("ORDERS")).success(function(data) {$scope.orders = data;});
     $http.get(makeAdminURL("popularBrands")).success(function(data) {$scope.popBrands = data;});
     $http.get(makeAdminURL("popularProducts")).success(function(data) {$scope.popProducts = data;});
+    $http.get(makeAdminURL("avgPrices")).success(function(data) {$scope.avgPrices = data;});
 }]);
 
 app.controller('mainController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
