@@ -12,7 +12,7 @@
     </tr>
 </thead>
 <tr ng-repeat="item in table">
-    <td ng-repeat="(key,value) in item">{{value}}{{key === 'role' && value == '0'  ? ' (ADMIN)' : key === 'role' && value == '1'  ? ' (TESTER)' : key === 'role' && value == '2'  ? ' (CUSTOMER)' : ''}}
+    <td ng-repeat="(key,value) in item">{{value == null ? 'N/A': value}}{{key === 'role' && value == '0'  ? ' (ADMIN)' : key === 'role' && value == '1'  ? ' (TESTER)' : key === 'role' && value == '2'  ? ' (CUSTOMER)' : ''}}
                                                     {{key === 'USER ID' && value == '1' ? ' (ADMIN)' :  key === 'USER ID' && value == '2' ? ' (TESTER)' : key === 'USER ID' ? ' (CUSTOMER)' : ''}}    </td>
     <td ng-show="tableType=='Get PRODUCTS'"><a data-toggle="modal" data-target="#updateModal" ng-click="setUpdateItem(item)"><i class="fas fa-edit"></i></a>
 </tr>

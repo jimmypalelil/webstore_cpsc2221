@@ -63,7 +63,7 @@ if($tableType === 'USERS') {
 } else if ($tableType === 'userStats') {    
     $query = "SELECT u.UID AS 'uid', u.email AS 'EMAIL', u.firstName AS 'FIRST NAME', u.lastName AS 'LAST NAME', 
                 SUM(ot.quantity) AS 'Total Items Bought', ROUND(AVG(o.totalPrice)) AS 'average of Order Prices($)', 
-                COUNT(DISTINCT p.brand) AS 'total brands bought from'
+                COUNT(DISTINCT p.brand) AS 'total unique brands bought from'
                     FROM USERS u, ORDERS o, ORDERITEMS ot, PRODUCT p
                     WHERE u.UID = o.UID AND o.orderNo = ot.orderNo AND ot.PID = p.PID
                     GROUP BY u.UID";

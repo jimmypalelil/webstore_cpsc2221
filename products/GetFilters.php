@@ -31,7 +31,7 @@ if($filterType === 'brand') {
     $result = $conn->query($query);
     sendRes($result);
 } else if($filterType === 'price') {
-    $query = "SELECT DISTINCT price - MOD(price,100) AS price FROM PRODUCT WHERE type='$productType' ORDER BY price ASC";
+    $query = "SELECT DISTINCT price + 100 - MOD(price,100) AS price FROM PRODUCT WHERE type='$productType' ORDER BY price ASC";
     $result = $conn->query($query);
     sendRes($result);
 }

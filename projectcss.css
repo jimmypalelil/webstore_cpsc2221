@@ -15,10 +15,11 @@ body, html {
   background-color: #D6DADE;
 }
 
-#leftcollum { float: left;
-	width: 150px;
-	padding: 0px;
-	margin: 0px 200px 0px 0px;
+#leftcollum {     
+  float: left;
+  width: 7%;
+  padding: 0px;
+  margin: 10px 11% 0px 0px;
 }
 
 li { padding: 7px;
@@ -29,7 +30,8 @@ li { padding: 7px;
 	padding-left: 10px;
 }
 
-.pagetitle { padding: 0;
+.pagetitle { 
+  padding: 0;
 	margin: auto;
 }
 
