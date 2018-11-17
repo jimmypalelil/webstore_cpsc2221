@@ -67,7 +67,7 @@ function sendRes($dbResult, $productType, $uid) {
         echo "<th>Click to Buy</tr>";
         while($row = $dbResult->fetch_assoc()) {
             echo "<tr>";
-            echo "<td><img width='300px' height ='200px' src='/images/products/".$row['PID'].".jpg'></td>";
+            echo "<td><img width='300px' height ='200px' src='./images/products/".$row['PID'].".jpg'></td>";
             echo "<td><b>Product Name: </b>".$row['name']."<br>";
             echo "<b>Brand: </b>".$row['brand']."<br>";
             echo "<b>Colour: </b>".$row['colour']."<br>";

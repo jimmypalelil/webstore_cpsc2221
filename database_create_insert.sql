@@ -57,9 +57,16 @@ CREATE TABLE Shopping_cart (
     FOREIGN KEY (PID) REFERENCES PRODUCT(PID) ON DELETE CASCADE
 );
 
+/* Altering tables for auto increments */
+ALTER TABLE USERS AUTO_INCREMENT=1;
+ALTER TABLE PRODUCT AUTO_INCREMENT = 1;
+ALTER TABLE ORDERS AUTO_INCREMENT = 1;
+
+
 /*INSERT STATEMENTS*/
 
 /*PRODUCTS*/
+
 /*Camera*/
 INSERT INTO PRODUCT(name, brand, colour, price, storage, year, type, lens)
 VALUES('PowerShot', 'Canon', 'Black', '549.00', '16GB', '2018', 'camera', 'Ultra wide angle');

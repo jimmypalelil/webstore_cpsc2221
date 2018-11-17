@@ -19,7 +19,7 @@ app.config(['$routeProvider', function($routeProvider) {
         });
 }]);
 
-app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+app.controller('adminController', ['$scope', '$http', function($scope, $http) {
     var makeAdminURL = function(tableName) {
         return "GetAdminData.php?t=" + tableName;
     }
@@ -37,7 +37,9 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
         if(tableType === 'Get Most Popular Products')
             $scope.table = $scope.popProducts;
         if(tableType === 'Get Price Stats By Brand') 
-            $scope.table = $scope.avgPrices;        
+            $scope.table = $scope.avgPrices;  
+        if(tableType === 'Get User Stats') 
+            $scope.table = $scope.userStats;        
     }
 
     //The table to view
@@ -67,7 +69,7 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
 
     $scope.views = ['Get USERS', 'Get PRODUCTS', 'Get ORDERS',
          'Get Most Popular Brands', 'Get Most Popular Products',
-                'Get Price Stats By Brand'];
+                'Get Price Stats By Brand', 'Get User Stats'];
 
     $http.get(makeAdminURL("USERS")).success(function(data) {$scope.users = data; $scope.table = $scope.users; $scope.setButton('Get USERS')});
     $http.get(makeAdminURL("PRODUCT")).success(function(data) {$scope.products = data;});
@@ -75,6 +77,7 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
     $http.get(makeAdminURL("popularBrands")).success(function(data) {$scope.popBrands = data;});
     $http.get(makeAdminURL("popularProducts")).success(function(data) {$scope.popProducts = data;});
     $http.get(makeAdminURL("avgPrices")).success(function(data) {$scope.avgPrices = data;});
+    $http.get(makeAdminURL("userStats")).success(function(data) {$scope.userStats = data;});
 }]);
 
 app.controller('mainController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
@@ -109,21 +112,21 @@ app.controller('productController', ['$scope', '$http', '$routeParams', '$rootSc
         });
         
         //Get Brand Filters
-        var query = "./products/GetFilters.php?p=" + $routeParams.productType;
+        query = "./products/GetFilters.php?p=" + $routeParams.productType;
         query = query + "&filterType" + "=" + 'brand';
         $http.get(query).success(function(data) {
             $scope.brandOptions = data;
         });
 
         //Get Colour Filters
-        var query = "./products/GetFilters.php?p=" + $routeParams.productType;
+        query = "./products/GetFilters.php?p=" + $routeParams.productType;
         query = query + "&filterType" + "=" + 'colour';
         $http.get(query).success(function(data) {
             $scope.colourOptions = data;
         });
 
         //Get storage Filters
-        var query = "./products/GetFilters.php?p=" + $routeParams.productType;
+        query = "./products/GetFilters.php?p=" + $routeParams.productType;
         query = query + "&filterType" + "=" + 'storage';
         $http.get(query).success(function(data) {
             $scope.storageOptions = data;
