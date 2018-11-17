@@ -13,8 +13,12 @@ function loginUser() {
     xmlhttp.send();     
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            window.location.replace("#/products/products/camera/" + this.responseText);
-            location.reload();
+            if(this.responseText !== '0') {
+                window.location.replace("#/products/products/camera/" + this.responseText);
+                location.reload();
+            } else {
+                alert("Login Failed!!! Please Try Again");
+            }
         }
     }; 
 }

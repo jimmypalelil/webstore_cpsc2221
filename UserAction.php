@@ -52,10 +52,10 @@ if($_REQUEST['req'] === 'logout') {
             $_SESSION['UID'] = $row['UID'];
             echo $_SESSION['UID']; //success
         } else {
-            echo 0; //Login failed
+            echo '0'; //Login failed
         }
     } else {
-        echo 0; //Login failed
+        echo '0'; //Login failed
     }
 
     $conn->close();
