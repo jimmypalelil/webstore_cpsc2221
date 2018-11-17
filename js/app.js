@@ -47,6 +47,12 @@ app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScop
         $scope.selectedButton = button;        
     }
 
+    $scope.setUpdateItem = function(item) {
+        
+        $scope.updateItem = item;
+        console.log($scope.updateItem);
+    }
+
     $scope.views = ['Get USERS', 'Get PRODUCTS', 'Get ORDERS', 'Get Most Popular Brands', 'Get Most Popular Products'];
 
     $http.get(makeAdminURL("USERS")).success(function(data) {$scope.users = data; $scope.table = $scope.users; $scope.setButton('Get USERS')});
