@@ -17,16 +17,51 @@ app.config(['$routeProvider', function($routeProvider) {
         .when("/", {
             templateUrl: 'home.php',
             controller: 'homeController'
+        })
+        .when("/usr/admin", {
+            templateUrl: 'admin.php',
+            controller: 'adminController'
         });
 }]);
 
-app.controller('homeController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
-    $scope.imageNames = ['christmas.jpg', 'deals.jpg', 'shipping.jpg'];
+app.controller('adminController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+    var makeAdminURL = function(tableName) {
+        return "GetAdminData.php?t=" + tableName;
+    }
+
+    $scope.table = $scope.users;
+
+    $scope.setTableType = function(tableType) {
+        if(tableType === 'Get USERS') {
+            $scope.table = $scope.users;
+        }
+        if(tableType === 'Get PRODUCTS')
+            $scope.table = $scope.products;
+        if(tableType === 'Get ORDERS')
+            $scope.table = $scope.orders;
+        if(tableType === 'Get Most Popular Brands')
+            $scope.table = $scope.popBrands;
+        if(tableType === 'Get Most Popular Products')
+            $scope.table = $scope.popProducts;
+    }
+
+    $scope.setButton = function(button) {
+        $scope.selectedButton = button;        
+    }
+
+    $scope.views = ['Get USERS', 'Get PRODUCTS', 'Get ORDERS', 'Get Most Popular Brands', 'Get Most Popular Products'];
+
+    $http.get(makeAdminURL("USERS")).success(function(data) {$scope.users = data;});
+    $http.get(makeAdminURL("PRODUCT")).success(function(data) {$scope.products = data;});
+    $http.get(makeAdminURL("ORDERS")).success(function(data) {$scope.orders = data;});
+    $http.get(makeAdminURL("popularBrands")).success(function(data) {$scope.popBrands = data;});
+    $http.get(makeAdminURL("popularProducts")).success(function(data) {$scope.popProducts = data;});
 }]);
 
 app.controller('mainController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
     $rootScope.pageType = $routeParams.pageType;
     $rootScope.uid = $routeParams.uid;    
+    $rootScope.isAdmin = $rootScope.uid === 1;
 
     $scope.registerUser = function() {
         registerUser($scope.email, $scope.password,$scope.firstName, $scope.lastName, $scope.address);

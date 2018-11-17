@@ -320,9 +320,6 @@ footer { /*background-color: #ff4da6;*/
 
 }
 
-
-
-
 @media only screen and (max-width: 1024px) {
    body { margin: 0; }
    #wrapper { width: auto; } 
@@ -348,4 +345,12 @@ footer { /*background-color: #ff4da6;*/
 
 a, th {
 	cursor: pointer;
+}
+
+.adminButtons {
+  border-radius: 25px !important;
+}
+
+.adminButtonClicked {
+  background-color: black !important;
 }

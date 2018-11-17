@@ -53,6 +53,7 @@
 					</div>';
 			echo '<a href="#/usr/shoppingCart/'.$_SESSION['UID'].'">Shopping Cart</a>';
 			echo '<a href="#/usr/orders/'.$_SESSION['UID'].'">Orders</a>';
+			echo '<a ng=show="{{isAdmin}}" href=#/usr/admin>ADMIN</a>';
 			echo "<a data-toggle='modal' data-target='#logoutModal'>Logout</a>";
 		}	else {
 			echo "<a data-toggle='modal' data-target='#loginModal'>Login</a>";
