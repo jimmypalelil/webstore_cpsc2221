@@ -11,7 +11,12 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'productController'
         })
         .when("/", {
-            templateUrl: 'home.php'
+            templateUrl: 'home.php',
+            controller: 'mainController'
+        })
+        .when("/home/:uid", {
+            templateUrl: 'home.php',
+            controller: 'mainController'
         })
         .when("/usr/admin", {
             templateUrl: 'admin.php',
@@ -21,7 +26,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('mainController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
     $rootScope.pageType = $routeParams.pageType;
-    $rootScope.uid = $routeParams.uid;    
+    $rootScope.isAdmin = $routeParams.uid == 1;    
    
 
     $scope.registerUser = function() {

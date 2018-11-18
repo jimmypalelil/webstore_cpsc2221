@@ -42,8 +42,17 @@
 		session_start();
 		if($_SESSION) echo "<p><i class='fas fa-user-tie'></i> Hi, ".$_SESSION['email']. "</p>";
 	?>
-	<a href="#/"><i class="fas fa-home"></i> Home</a>
+
+	<?php
+	if($_SESSION) {
+		echo '<a href="#/home/'.$_SESSION['UID'].'"><i class="fas fa-home"></i> Home</a>';
+	} else {
+		echo '<a href="#/"><i class="fas fa-home"></i> Home</a>';
+	}
 	
+	
+	?>
+
 	<?php
 		if($_SESSION) {
 			echo '

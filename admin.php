@@ -3,7 +3,7 @@
     <button style="display:inline;" class="btn btn-success adminButtons" ng-class="{'adminButtonClicked': selectedButton == view }"  ng-click="setTableType(view); setButton(view)" ng-repeat="view in views">{{view}}</button>
 </div>
 <hr class="my-4">
-
+{{table === '' ? "No Items FOUND!!!" : ''}}
 <table class="table table-hover table-striped table-bordered table-condensed">
 <thead class="thead-dark">
     <tr>

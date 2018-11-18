@@ -31,7 +31,11 @@ app.controller('adminController', ['$scope', '$http', function($scope, $http) {
         if(tableType === 'Get Price Stats By Brand') 
             $scope.table = $scope.avgPrices;  
         if(tableType === 'Get User Stats') 
-            $scope.table = $scope.userStats;        
+            $scope.table = $scope.userStats; 
+        if(typeof $scope.table === 'string') {
+            $scope.table = '';
+            $scope.item = '';
+        } 
     }
 
     //The table to view
