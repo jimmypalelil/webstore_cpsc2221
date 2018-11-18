@@ -19,7 +19,10 @@
 	<script src="https://code.angularjs.org/1.5.0-rc.2/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
 
+	<!-- Angular Controllers -->
 	<script src="js/app.js"></script>
+	<script src="./js/controllers/adminController.js"></script>
+	<script src="./js/controllers/productController.js"></script>
 	<!-- Angular END -->
 
 	<!-- FONt ASESOME -->

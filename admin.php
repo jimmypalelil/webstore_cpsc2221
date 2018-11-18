@@ -7,13 +7,14 @@
 <table class="table table-hover table-striped table-bordered table-condensed">
 <thead class="thead-dark">
     <tr>
-        <th ng-repeat="(key, value) in table[0]">{{key | uppercase}}</th>
+        <th ng-click="setSortKey(key)" ng-repeat="(key, value) in table[0]">{{key | uppercase}} <i ng-if="key == sortKey" class="fas fa-sort-up"></i><i ng-if="key == sortKeyDown" class="fas fa-sort-down"></i></th>
         <th ng-show="tableType=='Get PRODUCTS'">EDIT</th>
     </tr>
 </thead>
-<tr ng-repeat="item in table">
-    <td ng-repeat="(key,value) in item">{{value == null ? 'N/A': value}}{{key === 'role' && value == '0'  ? ' (ADMIN)' : key === 'role' && value == '1'  ? ' (TESTER)' : key === 'role' && value == '2'  ? ' (CUSTOMER)' : ''}}
-                                                    {{key === 'USER ID' && value == '1' ? ' (ADMIN)' :  key === 'USER ID' && value == '2' ? ' (TESTER)' : key === 'USER ID' ? ' (CUSTOMER)' : ''}}    </td>
+<tr ng-repeat="item in table | orderBy: sortKey">
+    <td ng-repeat="(key,value) in item">{{ key.includes('price') ? '$' : '' }}{{value == null ? 'N/A': value}}
+                {{key === 'role' ? userRoles[value] : ''}}                
+                {{key === 'USER_ID' && (value == '1' || value === '2') ? userRoles[value - 1] : ''}}    </td>
     <td ng-show="tableType=='Get PRODUCTS'"><a data-toggle="modal" data-target="#updateModal" ng-click="setUpdateItem(item)"><i class="fas fa-edit"></i></a>
 </tr>
 </table>
