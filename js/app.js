@@ -26,7 +26,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('mainController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {    
     $rootScope.pageType = $routeParams.pageType;
-    $rootScope.isAdmin = $routeParams.uid == 1;    
+    $rootScope.isAdmin = $routeParams.uid < 5;    
    
 
     $scope.registerUser = function() {

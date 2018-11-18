@@ -6,8 +6,6 @@ app.controller('adminController',  ['$scope', '$http','$rootScope', function($sc
         return "GetAdminData.php?t=" + tableName;
     }
 
-    $scope.userRoles = ['(ADMIN)', '(TESTER)', '(CUSTOMER)'];
-
     $scope.setSortKey = function(key) {
         if($scope.sortKey === key) {
             $scope.sortKey = '-' + $scope.sortKey;

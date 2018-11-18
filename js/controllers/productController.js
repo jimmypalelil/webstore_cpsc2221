@@ -1,7 +1,7 @@
 app.controller('productController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
     $scope.showFilters = false;
 
-     $rootScope.isAdmin = $routeParams.uid == 1;
+     $rootScope.isAdmin = $routeParams.uid < 5;
 
     if($routeParams.pageType == 'products') {
         $scope.showFilters = true;

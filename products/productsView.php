@@ -3,7 +3,7 @@
 ?>
 
 <div ng-app="myApp" ng-controller="productController">
-    <div id="leftcollum" ng-show="{{showFilters}}">
+    <div class="filter-column" ng-show="{{showFilters}}">
         <h3>Filters</h3>
         Price
         <!-- <label for="priceOption" class="input-group-text">        -->
@@ -22,13 +22,14 @@
         <select class="custom-select" style="width: 210%;" id="storageOption" name="storageOption" ng-change="filterProducts()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
         <option value="">-- Choose Storage Options --</option>
         </select>
-        <hr>
+        <hr class="my-4">
     </div>
 
     <!-- Product Table gets inserted here -->
     <div class="grid-container" id="products"></div>
     <!-- End of product table -->
 
+    <!-- Popup dialog for Quantity Input -->
     <div class="modal fade" id="addToCartModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -50,6 +51,7 @@
         </div>
     </div>    
 
+    <!-- Popup for Removing Item from Shopping cart -->
     <div class="modal fade" id="removeFromCartModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -70,6 +72,7 @@
         </div>
     </div>
 
+    <!-- Popup for checking out Items from Shopping cart -->
     <div class="modal fade" id="addToOrdersModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
