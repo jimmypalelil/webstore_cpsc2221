@@ -1,4 +1,7 @@
-app.controller('adminController', ['$scope', '$http', function($scope, $http) {
+app.controller('adminController',  ['$scope', '$http','$rootScope', function($scope, $http, $rootScope) {
+
+    $rootScope.isAdmin = true;
+
     var makeAdminURL = function(tableName) {
         return "GetAdminData.php?t=" + tableName;
     }

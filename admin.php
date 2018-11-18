@@ -14,7 +14,7 @@
 <tr ng-repeat="item in table | orderBy: sortKey">
     <td ng-repeat="(key,value) in item">{{ key.includes('price') ? '$' : '' }}{{value == null ? 'N/A': value}}
                 {{key === 'role' ? userRoles[value] : ''}}                
-                {{key === 'USER_ID' && (value == '1' || value === '2') ? userRoles[value - 1] : ''}}    </td>
+                {{key === 'USER_ID' && (value === 1 || value === 2) ? userRoles[value - 1] : ''}}    </td>
     <td ng-show="tableType=='Get PRODUCTS'"><a data-toggle="modal" data-target="#updateModal" ng-click="setUpdateItem(item)"><i class="fas fa-edit"></i></a>
 </tr>
 </table>

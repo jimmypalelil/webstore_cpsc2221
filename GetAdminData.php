@@ -39,7 +39,7 @@ if($tableType === 'USERS') {
     $result = $conn->query($query);
     sendRes($result);
 } else if($tableType === 'popularProducts') {
-    $query = "SELECT p.name as 'Product_name_(bought_by_every_user)', p.brand, p.price, p.year, SUM(ot.quantity) AS 'quantity sold'
+    $query = "SELECT p.name as 'Product_name_(bought_by_every_user)', p.brand, p.price, p.year, SUM(ot.quantity) AS 'quantity_sold'
                 FROM PRODUCT p, ORDERITEMS ot
                 WHERE p.PID = ot.PID AND NOT EXISTS
                 (SELECT * FROM USERS u
