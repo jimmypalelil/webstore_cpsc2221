@@ -40,14 +40,14 @@
 <nav class="navbar navbar-right fixed-top navbar-light bg-dark">
 	<?php
 		session_start();
-		if($_SESSION) echo "<h5 class='nav-item'><i class='fas fa-user-tie'></i> Hi, ".$_SESSION['email']. " <span class='badge badge-secondary'>{{isAdmin ? '(ADMIN)' : ''}}</span></h5>";
+		if($_SESSION) echo "<h6 class='nav-item'><i class='fas fa-user-tie'></i> Hi, ".$_SESSION['email']. " <span class='badge badge-secondary'>{{isAdmin ? '(ADMIN)' : ''}}</span></h6>";
 	?>
 
 	<ul class="nav nav-pills">
 	<li class="nav-item">
 	<?php
 		if($_SESSION) {
-			echo '<a href="#/home/'.$_SESSION['UID'].'"><i class="fas fa-home"></i> Home</a>';
+			echo '<a ng-class="{\'tabClicked\' : tab == \'home\'}" ng-click="setTab(\'home\')" href="#/home/'.$_SESSION['UID'].'"><i class="fas fa-home"></i> Home</a>';
 		} else {
 			echo '<a href="#/"><i class="fas fa-home"></i> Home</a>';
 		}	
@@ -57,18 +57,18 @@
 		if($_SESSION) {
 			echo '
 						<div class="dropdown">
-						<li class="nav-item dropdown"><a class="dropbtn"><i class="fas fa-boxes"></i> Products</a>
+						<li ng-class="{\'tabClicked\' : tab == \'product\'}" class="nav-item dropdown"><a class="dropbtn"><i class="fas fa-boxes"></i> Products</a>
 						<div class="dropdown-content dropdown-menu">
-						<a class="dropdown-item" href="#/products/products/camera/'.$_SESSION['UID'].'"><i class="fas fa-camera-retro"></i> Cameras</a>
-						<a class="dropdown-item" href="#/products/products/laptop/'.$_SESSION['UID'].'"><i class="fas fa-laptop"></i> Laptops</a>
-						<a class="dropdown-item" href="#/products/products/cellphone/'.$_SESSION['UID'].'"><i class="fas fa-mobile-alt"></i> Cellphones</a>
-						<a class="dropdown-item" href="#/products/products/tablet/'.$_SESSION['UID'].'"><i class="fas fa-tablet-alt"></i> Tablets</a>
-						<a class="dropdown-item" href="#/products/products/smartwatch/'.$_SESSION['UID'].'"><i class="fas fa-clock"></i> Smartwatches</a>
+						<a ng-click="setTab(\'product\')" class="dropdown-item" href="#/products/products/camera/'.$_SESSION['UID'].'"><i class="fas fa-camera-retro"></i> Cameras</a>
+						<a ng-click="setTab(\'product\')" class="dropdown-item" href="#/products/products/laptop/'.$_SESSION['UID'].'"><i class="fas fa-laptop"></i> Laptops</a>
+						<a ng-click="setTab(\'product\')" class="dropdown-item" href="#/products/products/cellphone/'.$_SESSION['UID'].'"><i class="fas fa-mobile-alt"></i> Cellphones</a>
+						<a ng-click="setTab(\'product\')" class="dropdown-item" href="#/products/products/tablet/'.$_SESSION['UID'].'"><i class="fas fa-tablet-alt"></i> Tablets</a>
+						<a ng-click="setTab(\'product\')" class="dropdown-item" href="#/products/products/smartwatch/'.$_SESSION['UID'].'"><i class="fas fa-clock"></i> Smartwatches</a>
 						</div>	
 					</div>';
-			echo '<li class="nav-item"><a href="#/usr/shoppingCart/'.$_SESSION['UID'].'"><i class="fas fa-shopping-cart"></i> Shopping Cart</a>';
-			echo '<li class="nav-item"><a href="#/usr/orders/'.$_SESSION['UID'].'"><i class="far fa-list-alt"></i> Orders</a>';
-			echo '<li class="nav-item"><a ng-show="isAdmin" href=#/usr/admin><i class="fas fa-user-shield"></i> ADMIN</a>';
+			echo '<li class="nav-item"><a ng-class="{\'tabClicked\' : tab == \'cart\'}" ng-click="setTab(\'cart\')" href="#/usr/shoppingCart/'.$_SESSION['UID'].'"><i class="fas fa-shopping-cart"></i> Shopping Cart</a>';
+			echo '<li class="nav-item"><a ng-class="{\'tabClicked\' : tab == \'orders\'}" ng-click="setTab(\'orders\')" href="#/usr/orders/'.$_SESSION['UID'].'"><i class="far fa-list-alt"></i> Orders</a>';
+			echo '<li class="nav-item"><a ng-class="{\'tabClicked\' : tab == \'admin\'}" ng-click="setTab(\'admin\')" ng-show="isAdmin" href=#/usr/admin><i class="fas fa-user-shield"></i> ADMIN</a>';
 			echo '<li class="nav-item"><a data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i> Logout</a>';
 		}	else {
 			echo "<li class='av-item'><a data-toggle='modal' data-target='#loginModal'><i class='fas fa-sign-in-alt'></i> Login</a>";

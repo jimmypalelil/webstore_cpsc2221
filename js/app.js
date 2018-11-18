@@ -28,8 +28,13 @@ app.controller('mainController', ['$scope', '$rootScope', '$routeParams', functi
     $rootScope.pageType = $routeParams.pageType;
     $rootScope.isAdmin = $routeParams.uid < 5;    
    
+    $scope.tab = 'home';
 
     $scope.registerUser = function() {
         registerUser($scope.email, $scope.password,$scope.firstName, $scope.lastName, $scope.address);
+    }
+
+    $scope.setTab = function(tab) {
+        $scope.tab = tab;
     }
 }]);
