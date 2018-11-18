@@ -40,7 +40,7 @@
 <nav class="navbar navbar-right fixed-top navbar-light bg-dark">
 	<?php
 		session_start();
-		if($_SESSION) echo "<h6 class='nav-item'><i class='fas fa-user-tie'></i> Hi, ".$_SESSION['email']. " <span class='badge badge-secondary'>{{isAdmin ? '(ADMIN)' : ''}}</span></h6>";
+		if($_SESSION) echo "<h6 class='nav-item'><i ng-hide='isAdmin' class='fas fa-user'></i><i ng-show='isAdmin' class='fas fa-user-tie'></i> Hi, ".$_SESSION['email']. " <span class='badge badge-secondary'>{{isAdmin ? 'ADMIN' : ''}}</span></h6>";
 	?>
 
 	<ul class="nav nav-pills">
