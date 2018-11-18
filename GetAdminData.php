@@ -30,22 +30,23 @@ if($tableType === 'USERS') {
     sendRes($result);
 } else if($tableType === 'popularBrands') {
     $query = "SELECT DISTINCT p.brand as 'brand_(bought by every user)'
-        FROM PRODUCT p
-        WHERE NOT EXISTS
-        (SELECT * FROM USERS u
-            WHERE NOT EXISTS 
-            (SELECT * FROM ORDERS o, ORDERITEMS ot
-                WHERE o.orderNo = ot.orderNo AND ot.PID = p.PID AND o.UID = u.UID ))";
+                FROM PRODUCT p
+                WHERE NOT EXISTS
+                (SELECT * FROM USERS u
+                    WHERE NOT EXISTS 
+                    (SELECT * FROM ORDERS o, ORDERITEMS ot
+                        WHERE o.orderNo = ot.orderNo AND ot.PID = p.PID AND o.UID = u.UID ))";
     $result = $conn->query($query);
     sendRes($result);
 } else if($tableType === 'popularProducts') {
-    $query = "SELECT p.name as 'Product_name_(bought_by_every_user)', p.brand, p.price, p.year
-        FROM PRODUCT p
-        WHERE NOT EXISTS
-        (SELECT * FROM USERS u
-            WHERE NOT EXISTS 
-            (SELECT * FROM ORDERS o, ORDERITEMS ot
-                WHERE o.orderNo = ot.orderNo AND ot.PID = p.PID AND o.UID = u.UID ))";
+    $query = "SELECT p.name as 'Product_name_(bought_by_every_user)', p.brand, p.price, p.year, SUM(ot.quantity) AS 'quantity sold'
+                FROM PRODUCT p, ORDERITEMS ot
+                WHERE p.PID = ot.PID AND NOT EXISTS
+                (SELECT * FROM USERS u
+                    WHERE NOT EXISTS 
+                    (SELECT * FROM ORDERS o, ORDERITEMS ot
+                        WHERE o.orderNo = ot.orderNo AND ot.PID = p.PID AND o.UID = u.UID ))
+                GROUP BY p.PID";
     $result = $conn->query($query);
     sendRes($result);
 } else if ($tableType === 'updatePrice') {
