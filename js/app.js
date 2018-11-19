@@ -28,14 +28,12 @@ app.controller('mainController', ['$scope', '$rootScope', '$routeParams', '$http
     $rootScope.pageType = $routeParams.pageType;
     $rootScope.isAdmin = $routeParams.uid < 5;    
    
-    $scope.getCartTotal = function() {
-        if($rootScope.isAdmin) {
-            var url = './products/GetCart.php?uid=' + $routeParams.uid;
-            url = url + '&req=getCartTotal'
-            $http.get(url).success(function(data) {
-                $rootScope.cartTotal = data;
-            })
-        }
+    $scope.getCartTotal = function() {        
+        var url = './products/GetCart.php?uid=' + $routeParams.uid;
+        url = url + '&req=getCartTotal'
+        $http.get(url).success(function(data) {
+            $rootScope.cartTotal = data;
+        })    
     }    
 
     $scope.getCartTotal();
