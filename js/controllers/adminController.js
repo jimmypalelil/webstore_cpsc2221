@@ -1,6 +1,8 @@
-app.controller('adminController',  ['$scope', '$http','$rootScope', function($scope, $http, $rootScope) {
+app.controller('adminController',  ['$scope', '$http','$rootScope', '$routeParams', function($scope, $http, $rootScope, $routeParams) {
 
     $rootScope.isAdmin = true;
+
+    $scope.getCartTotal();
 
     var makeAdminURL = function(tableName) {
         return "GetAdminData.php?t=" + tableName;

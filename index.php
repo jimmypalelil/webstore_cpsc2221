@@ -66,9 +66,9 @@
 						<a ng-click="setTab(\'product\')" class="dropdown-item" href="#/products/products/smartwatch/'.$_SESSION['UID'].'"><i class="fas fa-clock"></i> Smartwatches</a>
 						</div>	
 					</div>';
-			echo '<li class="nav-item"><a ng-class="{\'tabClicked\' : tab == \'cart\'}" ng-click="setTab(\'cart\')" href="#/usr/shoppingCart/'.$_SESSION['UID'].'"><i class="fas fa-shopping-cart"></i> Shopping Cart</a>';
+			echo '<li class="nav-item"><a ng-class="{\'tabClicked\' : tab == \'cart\'}" ng-click="setTab(\'cart\')" href="#/usr/shoppingCart/'.$_SESSION['UID'].'"><i class="fas fa-shopping-cart"></i> Shopping Cart <span class="badge badge-secondary">{{cartTotal > 0 ? cartTotal : ""}}</span></a>';
 			echo '<li class="nav-item"><a ng-class="{\'tabClicked\' : tab == \'orders\'}" ng-click="setTab(\'orders\')" href="#/usr/orders/'.$_SESSION['UID'].'"><i class="far fa-list-alt"></i> Orders</a>';
-			echo '<li class="nav-item"><a ng-class="{\'tabClicked\' : tab == \'admin\'}" ng-click="setTab(\'admin\')" ng-show="isAdmin" href=#/usr/admin><i class="fas fa-user-shield"></i> ADMIN</a>';
+			echo '<li class="nav-item"><a ng-class="{\'tabClicked\' : tab == \'admin\'}" ng-click="setTab(\'admin\')" ng-show="isAdmin" href=#/usr/admin/home/'.$_SESSION['UID'].'><i class="fas fa-user-shield"></i> ADMIN</a>';
 			echo '<li class="nav-item"><a data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i> Logout</a>';
 		}	else {
 			echo "<li class='av-item'><a data-toggle='modal' data-target='#loginModal'><i class='fas fa-sign-in-alt'></i> Login</a>";

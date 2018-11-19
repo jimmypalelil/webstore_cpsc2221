@@ -15,28 +15,43 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$orderingType = $_REQUEST['ot'];
-$ordering = $_REQUEST['o'];
 $uid = $_REQUEST['uid'];
 
-$cartQuery = "SELECT * FROM PRODUCT p, SHOPPING_CART sc WHERE p.PID = sc.PID AND sc.UID = '$uid' 
-    order by $orderingType $ordering";
+if($_REQUEST['req'] === 'getCartTotal') {
+    $query = "SELECT SUM(sc.quantity) as 'total' FROM SHOPPING_CART sc WHERE sc.UID = '$uid'";
 
-$result = $conn->query($cartQuery);
+    $result = $conn->query($query);
 
-$totalPriceQuery = "SELECT SUM(totalPrice) as sum FROM SHOPPING_CART WHERE UID='$uid'";
-
-$totalPrice = $conn->query($totalPriceQuery);
-
-if ($result->num_rows > 0) {
-    // output data of each row   
-    $totalPrice = $totalPrice->fetch_assoc();
-    $totalPrice = $totalPrice['sum'];
-    sendRes($result, $uid, $totalPrice);
+    if($result->num_rows > 0) {
+        echo $result->fetch_assoc()['total'];
+    }
 } else {
-    echo "0 results";
+
+    $orderingType = $_REQUEST['ot'];
+    $ordering = $_REQUEST['o'];
+
+
+    $cartQuery = "SELECT * FROM PRODUCT p, SHOPPING_CART sc WHERE p.PID = sc.PID AND sc.UID = '$uid' 
+        order by $orderingType $ordering";
+
+    $result = $conn->query($cartQuery);
+
+    $totalPriceQuery = "SELECT SUM(totalPrice) as sum FROM SHOPPING_CART WHERE UID='$uid'";
+
+    $totalPrice = $conn->query($totalPriceQuery);
+
+    if ($result->num_rows > 0) {
+        // output data of each row   
+        $totalPrice = $totalPrice->fetch_assoc();
+        $totalPrice = $totalPrice['sum'];
+        sendRes($result, $uid, $totalPrice);
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+
 }
-$conn->close();
+
 
 function sendRes($dbResult, $uid, $totalPrice) {
     //Setup the PRODUCT display table

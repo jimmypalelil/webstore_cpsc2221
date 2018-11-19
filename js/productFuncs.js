@@ -40,7 +40,7 @@ function getFilteredProducts(usid, productType, selectQuery) {
 function getCart(usid, orderType) {
     ordering = ordering === 'asc' ? 'desc' : 'asc';
     var xmlhttp = new XMLHttpRequest();
-    var query = "./products/GetCart.php?";
+    var query = "./products/GetCart.php?req=getCart";
     query = query + "&ot=" + orderType;
     query = query + "&o=" + ordering;
     query = query + "&uid=" + usid;
@@ -75,6 +75,7 @@ function addToCart() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             alert("Product was added to Your Cart Successfully");
+            location.reload();
         }
     };    
 }
@@ -89,7 +90,8 @@ function removeFromCart() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             location.reload();
-            alert("Product was deleted Successfully");            
+            alert("Product was deleted Successfully");        
+            location.reload();    
         }
     };    
 }
