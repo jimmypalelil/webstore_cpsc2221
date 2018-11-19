@@ -14,7 +14,7 @@ function loginUser() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             if(this.responseText !== '0') {
-                window.location.replace("#/products/products/camera/" + this.responseText);
+                window.location.replace("#/home/" + this.responseText);
                 location.reload();
             } else {
                 alert("Login Failed!!! Please Try Again");
