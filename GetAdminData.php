@@ -57,8 +57,10 @@ if($tableType === 'USERS') {
     if($result)
         echo "Price changed successfully";
 } else if ($tableType === 'avgPrices') {    
-    $query = "SELECT  brand AS brand, COUNT(*) AS 'total_products', ROUND(AVG(price), 2) AS 'avg_price', SUM(price) as 'total_price', 
-        MAX(price) AS 'max_price', MIN(price) AS 'min_price' FROM PRODUCT GROUP BY brand ORDER BY COUNT(*) DESC";
+    $query = "SELECT  p.brand AS brand, COUNT(*) AS 'total_products_offered', ROUND(AVG(p.price), 2) AS 'avg_price', SUM(p.price) as 'total_price', 
+                MAX(p.price) AS 'max_price', MIN(p.price) AS 'min_price' , (SELECT SUM(ot.quantity) FROM ORDERITEMS ot WHERE ot.PID = p.PID) AS 'total_quantity_sold'    
+                FROM PRODUCT p
+                GROUP BY brand;";
     $result = $conn->query($query);
     sendRes($result);
 } else if ($tableType === 'userStats') {    

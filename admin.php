@@ -12,7 +12,7 @@
     </tr>
 </thead>
 <tr ng-repeat="item in table | orderBy: sortKey">
-    <td ng-repeat="(key,value) in item">{{ key.includes('price') ? '$' : '' }}{{value == null ? 'N/A': value}}
+    <td ng-repeat="(key,value) in item">{{ key.includes('price') ? '$' : '' }}{{key === 'total_quantity_sold' && value == null ? '0': value == null ? 'N/A' : value}}
                 {{(key === 'role' && value === 0) || ((key === 'USER_ID' || key === 'uid') &&  value <= 4) ? '(ADMIN)' : ''}} </td>
     <td ng-show="tableType=='Get PRODUCTS'"><a data-toggle="modal" data-target="#updateModal" ng-click="setUpdateItem(item)"><i class="fas fa-edit"></i></a>
 </tr>
