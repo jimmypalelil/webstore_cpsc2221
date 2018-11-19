@@ -368,3 +368,8 @@ a, th  {
   border-style: solid;
   box-shadow: 3px 2px 10px rgba(23,23,23,1);
 }
+
+.table-bordered td, .table-bordered th {
+  border: 1px solid #dee2e6;
+  text-align: center;
+}
