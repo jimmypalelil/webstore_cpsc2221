@@ -48,7 +48,7 @@ function sendRes($dbResult, $uid, $conn) {
             echo $productRow['name']. "\t|\tQuantity:\t ". $productRow['quantity']. "\t|\tTotal Price:\t".$productRow['totalPrice']."<hr class='my-4'>";
         }
         echo "</td>";
-        echo "<td>$".$row['totalPrice']."</td>";        
+        echo "<td><b>$".$row['totalPrice']."</b></td>";        
         echo "</tr>";
     }
     echo "</table>";

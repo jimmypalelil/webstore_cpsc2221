@@ -58,7 +58,6 @@ header {
 	background-position: left;
 	height: 5%;
 	padding: 10px;
-	/*background-position: bottom;*/
 }
 
 input[type="checkbox"]{
@@ -372,4 +371,12 @@ a, th  {
 .table-bordered td, .table-bordered th {
   border: 1px solid #dee2e6;
   text-align: center;
+}
+
+.sortKey-visible {
+  visibility: visible;
+}
+
+.sortKey-hide {
+  visibility: hidden;
 }
