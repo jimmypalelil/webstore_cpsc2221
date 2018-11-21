@@ -23,6 +23,8 @@ body, html {
   margin: 10px 5% 0px 0px;
   -webkit-transition: width 2s; /* Safari */
   transition: width .5s; 
+  transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);
+  transition-duration: 0.5;
 }
 
 .filter-column:hover, select {       
