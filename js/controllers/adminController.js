@@ -19,27 +19,38 @@ app.controller('adminController',  ['$scope', '$http','$rootScope', '$routeParam
         }
     }    
 
+    $scope.populateTable = function(tableType) {
+        $http.get(makeAdminURL(tableType)).success(function(data) {
+            if(typeof data === 'string') {
+                $scope.table = '';
+                $scope.item = '';
+            } else 
+                $scope.table = data;
+        });
+    }
+
+    $scope.populateTable('USERS');
+    $scope.selectedButton = 'USERS';
+
     $scope.setTableType = function(tableType) {
         $scope.tableType = tableType;
-        if(tableType === 'Get USERS')       
-            $scope.table = $scope.users;        
-        if(tableType === 'Get PRODUCTS')
-            $scope.table = $scope.products;
-        if(tableType === 'Get ORDERS')
-            $scope.table = $scope.orders;
-        if(tableType === 'Get Most Popular Brands')
-            $scope.table = $scope.popBrands;
-        if(tableType === 'Get Most Popular Products')
-            $scope.table = $scope.popProducts;
-        if(tableType === 'Get Price Stats By Brand') 
-            $scope.table = $scope.avgPrices;  
-        if(tableType === 'Get User Stats') 
-            $scope.table = $scope.userStats; 
-        if(typeof $scope.table === 'string') {
-            $scope.table = '';
-            $scope.item = '';
-        } 
+        if(tableType === 'USERS')       
+            $scope.populateTable('USERS');       
+        if(tableType === 'PRODUCTS')
+            $scope.populateTable('PRODUCT');  
+        if(tableType === 'ORDERS')
+            $scope.populateTable('ORDERS');  
+        if(tableType === 'Most Popular Brands')
+            $scope.populateTable('popularBrands');  
+        if(tableType === 'Most Popular Products')
+            $scope.populateTable('popularProducts');  
+        if(tableType === 'Price Stats By Brand') 
+            $scope.populateTable('avgPrices');    
+        if(tableType === 'User Stats') 
+            $scope.populateTable('userStats');          
     }
+
+   
 
     //The table to view
     $scope.setButton = function(button) {
@@ -66,15 +77,7 @@ app.controller('adminController',  ['$scope', '$http','$rootScope', '$routeParam
         $scope.updateItem.price = price;
     } 
 
-    $scope.views = ['Get USERS', 'Get PRODUCTS', 'Get ORDERS',
-         'Get Most Popular Brands', 'Get Most Popular Products',
-                'Get Price Stats By Brand', 'Get User Stats'];
-
-    $http.get(makeAdminURL("USERS")).success(function(data) {$scope.users = data; $scope.table = $scope.users; $scope.setButton('Get USERS')});
-    $http.get(makeAdminURL("PRODUCT")).success(function(data) {$scope.products = data;});
-    $http.get(makeAdminURL("ORDERS")).success(function(data) {$scope.orders = data;});
-    $http.get(makeAdminURL("popularBrands")).success(function(data) {$scope.popBrands = data;});
-    $http.get(makeAdminURL("popularProducts")).success(function(data) {$scope.popProducts = data;});
-    $http.get(makeAdminURL("avgPrices")).success(function(data) {$scope.avgPrices = data;});
-    $http.get(makeAdminURL("userStats")).success(function(data) {$scope.userStats = data;});
+    $scope.views = ['USERS', 'PRODUCTS', 'ORDERS',
+         'Most Popular Brands', 'Most Popular Products',
+                'Price Stats By Brand', 'User Stats'];
 }]);
