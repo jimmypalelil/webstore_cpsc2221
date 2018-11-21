@@ -3,6 +3,7 @@
 ?>
 
 <div ng-app="myApp" ng-controller="productController">
+    <!-- Filters for Product Page -->
     <div class="filter-column" ng-show="{{showFilters}}">
         <h3><i class="fas fa-sliders-h"></i> Filters</h3>
         <i class="fas fa-dollar-sign"></i> Price<br>
@@ -27,7 +28,7 @@
         <hr class="my-4">
     </div>
 
-    <!-- Product Table gets inserted here -->
+    <!-- Product Table gets inserted inside this div -->
     <div class="grid-container" id="products"></div>
     <!-- End of product table -->
 
