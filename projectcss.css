@@ -1,9 +1,15 @@
-header, nav, main, footer { display: block; }
-body { font-family:Arial,"Helvetica Neue",sans-serif;
+
+header, nav, main, footer { 
+  display: block; 
+}
+
+body { 
+  font-family:Arial,"Helvetica Neue",sans-serif;
 }
 
 body, html {
-  height: 100%;
+  height: 100% !important;
+  background-color: white;
   margin: 0px auto;
   padding: 0px auto;
 }
@@ -12,7 +18,7 @@ body, html {
   padding: 0px auto;
   height: auto;
   min-height: 100%;
-  background-color: #D6DADE;
+  background-color: white;
 }
 
 .filter-column {     
@@ -53,6 +59,7 @@ li {
 
 body { 
   background-color: #FFFFFF;
+  height: 100% !important;
   background-image: url("images/appleprods.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
