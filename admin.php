@@ -1,8 +1,8 @@
 
 <div class='filter-column'>
     <ul class="list-group">
-    <li class="list-group-item adminButtons" ng-class="{'adminButtonClicked': selectedButton == view }"  ng-click="setTableType(view); setButton(view)" ng-repeat="view in views">{{view}} 
-        <span ng-show="selectedButton == view" class="badge badge-primary badge-pill"><i class="fas fa-chevron-circle-right"></i></span></li>
+    <li class="list-group-item d-flex justify-content-between align-items-center adminButtons" style="padding:10px;" ng-class="{'adminButtonClicked': selectedButton == view }"  ng-click="setTableType(view); setButton(view)" ng-repeat="view in views">{{view}} 
+        <span ng-show="selectedButton == view" class="badge"><i class="fas fa-chevron-circle-right"></i></span></li>
 </div>
 
 <hr class="my-4" style="width:100%;">
