@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 $uid = $_REQUEST['uid'];
 
-if($_REQUEST['req'] === 'getCartTotal') {
+if($_REQUEST['req'] === 'getCartTotal') { //Get cart total for notification on nav bar
     $query = "SELECT SUM(sc.quantity) as 'total' FROM SHOPPING_CART sc WHERE sc.UID = '$uid'";
 
     $result = $conn->query($query);
@@ -25,11 +25,10 @@ if($_REQUEST['req'] === 'getCartTotal') {
     if($result->num_rows > 0) {
         echo $result->fetch_assoc()['total'];
     }
-} else {
+} else { //get cart items
 
     $orderingType = $_REQUEST['ot'];
     $ordering = $_REQUEST['o'];
-
 
     $cartQuery = "SELECT * FROM PRODUCT p, SHOPPING_CART sc WHERE p.PID = sc.PID AND sc.UID = '$uid' 
         order by $orderingType $ordering";
@@ -68,7 +67,7 @@ function sendRes($dbResult, $uid, $totalPrice) {
         echo "<td>".strtoupper($row['type'])."</td>";
         echo "<td>".$row['name']."</td>";
         echo "<td>".$row['brand']."</td>";
-        echo "<td> ".$row['colour']."</td>";
+        echo "<td>".$row['colour']."</td>";
         echo "<td>".$row['quantity']."</td>";
         echo "<td>$".$row['totalPrice']."</td>";        
         echo "<td><button class='btn btn-danger' onclick='setProductVars(" .$row['PID']. ",".$uid .")' data-toggle='modal' data-target='#removeFromCartModal'/>Remove from Cart</td>";

@@ -8,6 +8,11 @@
 	<link rel="shortcut icon" href="photos/favicon.ico" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Website for buying various electronics">
+
+	<!-- FONt ASESOME -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<!-- FONT AWESOME END -->
+
 	<!-- Boostrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -18,6 +23,7 @@
 	<!-- Angular -->
 	<script src="https://code.angularjs.org/1.5.0-rc.2/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.2/angular-route.min.js"></script>
+	<!-- Angular END -->
 
 	<!-- Angular Controllers -->
 	<script src="js/app.js"></script>
@@ -25,12 +31,10 @@
 	<script src="./js/controllers/productController.js"></script>
 	<!-- Angular END -->
 
-	<!-- FONt ASESOME -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-	<!-- FONT AWESOME -->
-
+	<!-- Custom Javascript -->
 	<script src="./js/userFuncs.js"></script>	
 	<script src="./js/productFuncs.js"></script>
+	<!-- Custom JavaScript END -->
 </head>
 
 <body>

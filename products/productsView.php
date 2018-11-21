@@ -4,22 +4,24 @@
 
 <div ng-app="myApp" ng-controller="productController">
     <div class="filter-column" ng-show="{{showFilters}}">
-        <h3>Filters</h3>
-        Price
-        <!-- <label for="priceOption" class="input-group-text">        -->
-        <select class="custom-select" style="width: 210%;" id="priceOption" name="priceOption" ng-change="filterProducts()" ng-model="priceOptionSelected" ng-options="item.label for item in priceOptions">
+        <h3><i class="fas fa-sliders-h"></i> Filters</h3>
+        <i class="fas fa-dollar-sign"></i> Price<br>
+        <select class="custom-select" id="priceOption" name="priceOption" ng-change="filterProducts()" ng-model="priceOptionSelected" ng-options="item.label for item in priceOptions">
         <option value="">-- Choose Price Options --</option>
         </select>
-        Brand
-        <select class="custom-select" style="width: 210%;" id="brandOption" name="brandOption" ng-change="filterProducts()" ng-model="brandOptionSelected" ng-options="item.brand for item in brandOptions">
+        <hr class="my-4">
+        <i class="fab fa-blogger-b"></i> Brand<br>
+        <select class="custom-select" id="brandOption" name="brandOption" ng-change="filterProducts()" ng-model="brandOptionSelected" ng-options="item.brand for item in brandOptions">
         <option value="">-- Choose Brand Options --</option>
         </select>
-        Colour
-        <select class="custom-select" style="width: 210%;" id="colourOption" name="colourOption" ng-change="filterProducts()" ng-model="colourOptionSelected" ng-options="item.colour for item in colourOptions">
+        <hr class="my-4">
+        <i class="fas fa-palette"></i> Colour<br>
+        <select class="custom-select" id="colourOption" name="colourOption" ng-change="filterProducts()" ng-model="colourOptionSelected" ng-options="item.colour for item in colourOptions">
         <option value="">-- Choose Colour Options --</option>
         </select>
-        Storage
-        <select class="custom-select" style="width: 210%;" id="storageOption" name="storageOption" ng-change="filterProducts()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
+        <hr class="my-4">
+        <i class="fas fa-hdd"></i> Storage<br>
+        <select class="custom-select" id="storageOption" name="storageOption" ng-change="filterProducts()" ng-model="storageOptionSelected" ng-options="item.storage for item in storageOptions">
         <option value="">-- Choose Storage Options --</option>
         </select>
         <hr class="my-4">
