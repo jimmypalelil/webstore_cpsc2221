@@ -1,5 +1,5 @@
 
-<div class='filter-column'>
+<div class='admin-column'>
     <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between align-items-center adminButtons" style="padding:10px;" ng-class="{'adminButtonClicked': selectedButton == view }"  ng-click="setTableType(view); setButton(view)" ng-repeat="view in views">{{view}} 
         <span ng-show="selectedButton == view" class="badge"><i class="fas fa-chevron-circle-right"></i></span></li>
@@ -7,7 +7,7 @@
 
 <hr class="my-4" style="width:100%;">
 
-<div class="grid-container">
+<!-- <div class="grid-container"> -->
     <div class="container">
         <!-- If no items are found from database -->
         {{table === '' ? "No Items FOUND!!!" : ''}}
@@ -32,7 +32,7 @@
         </tr>
         </table>
     </div>
-</div>
+<!-- </div> -->
 
 
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog">

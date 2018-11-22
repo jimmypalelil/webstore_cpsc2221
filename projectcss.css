@@ -165,6 +165,8 @@ main {
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 10px;
+  position: relative;
+  right: 0%;
   background-color: white;
 }
 
@@ -400,4 +402,23 @@ a, th  {
 
 .sortKey-hide {
   visibility: hidden;
+}
+
+.admin-column {
+  float: left;
+  padding: 15px;
+  background-color: #676666;
+  border-radius: 13px;
+  width: 300px;
+  height: 100% !important;
+  min-height: 100%;
+  margin: 10px 0;
+  -webkit-transition: width 2s;
+  transition: width .5s;
+  transition-duration: 0.5;
+  transition-delay: .4s;
+}
+
+.admin-column li {
+  cursor: pointer;
 }
