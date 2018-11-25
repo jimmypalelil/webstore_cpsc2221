@@ -24,7 +24,7 @@ body, html {
 .filter-column {
   float: left;
   padding: 15px;
-  background-color: #676666;
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 13px;
   width: 8%;
   height: 100% !important;
@@ -407,16 +407,12 @@ a, th  {
 .admin-column {
   float: left;
   padding: 15px;
-  background-color: #676666;
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 13px;
   width: 300px;
   height: 100% !important;
   min-height: 100%;
   margin: 10px 0;
-  -webkit-transition: width 2s;
-  transition: width .5s;
-  transition-duration: 0.5;
-  transition-delay: .4s;
 }
 
 .admin-column li {
