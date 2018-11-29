@@ -20,7 +20,7 @@
                 <th ng-show="key !== 'password'" ng-click="setSortKey(key)" ng-repeat="(key, value) in table[0]">{{key | uppercase}} 
                     <i ng-if="key == sortKey" class="fas fa-sort-amount-up"></i><i ng-if="key == sortKeyDown" class="fas fa-sort-amount-down"></i>
                 </th>
-                <th ng-show="tableType=='Get PRODUCTS'">EDIT</th>
+                <th ng-show="tableType=='PRODUCTS'">EDIT</th>
             </tr>
         </thead>
         <tr ng-repeat="item in table | orderBy: sortKey">
