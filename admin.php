@@ -12,18 +12,20 @@
         <!-- If no items are found from database -->
         {{table === '' ? "No Items FOUND!!!" : ''}}
 
-        <select ng-model="headerSelected" ng-change="changeProductTable()" ng-show="tableType==='PRODUCTS'">
-            <option ng-repeat="(key,value) in table[0]">{{key}}</option>
+        <select class="custom-select" ng-model="headerSelected" ng-change="changeProductTable()" ng-show="tableType==='Projection'">
+            <option ng-repeat="header in projectionHeaders">{{header}}</option>
         </select>
+        <hr class="my-4">
         <table class="table table-hover table-striped table-bordered table-condensed">
 
         <!-- Table header with sort icon -->
         <thead class="thead-dark">
             <tr>
+                <!-- <th ng-show="key==='Projection'">{{table[0]}}</th>  -->
                 <th ng-show="key !== 'password'" ng-click="setSortKey(key)" ng-repeat="(key, value) in table[0]">{{key | uppercase}} 
                     <i ng-if="key == sortKey" class="fas fa-sort-amount-up"></i><i ng-if="key == sortKeyDown" class="fas fa-sort-amount-down"></i>
                 </th>
-                <th ng-show="tableType=='PRODUCTS'">EDIT</th>
+                <th ng-show="tableType=='PRODUCTS' && tableType!='Projection'">EDIT</th>
             </tr>
         </thead>
         <tr ng-repeat="item in table | orderBy: sortKey">

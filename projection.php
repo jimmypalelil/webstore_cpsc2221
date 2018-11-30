@@ -12,7 +12,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 $req = $_REQUEST['field'];
 
-$query = "SELECT ". $req . " FROM PRODUCTS";
+$query = "SELECT DISTINCT $req FROM PRODUCT";
 
 $result = $conn->query($query);
 
@@ -22,5 +22,6 @@ if ($result->num_rows > 0) {
         $resultArray[] = $row;
     }
     echo json_encode($resultArray,JSON_NUMERIC_CHECK);
+}
 
 ?>

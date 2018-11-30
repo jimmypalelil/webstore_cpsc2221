@@ -6,7 +6,7 @@ app.controller('adminController',  ['$scope', '$http','$rootScope', '$routeParam
 
     $scope.changeProductTable = function() {
         console.log($scope.headerSelected);
-        $http.get("projetion.php?field=" + $scope.headerSelected).success(function(data) {
+        $http.get("projection.php?field=" + $scope.headerSelected).success(function(data) {
            $scope.table = data; 
         });
     }
@@ -54,10 +54,17 @@ app.controller('adminController',  ['$scope', '$http','$rootScope', '$routeParam
         if(tableType === 'Price Stats By Brand') 
             $scope.populateTable('avgPrices');    
         if(tableType === 'User Stats') 
-            $scope.populateTable('userStats');          
+            $scope.populateTable('userStats');
+        if(tableType === 'Projection') {
+            $http.get("projection.php?field=name").success(function(data) {
+                // console.log(data);
+                $scope.table = data; 
+             });
+        }                      
     }
 
-   
+    $scope.projectionHeaders = ['name', 'brand', 'colour','year'];
+
 
     //The table to view
     $scope.setButton = function(button) {
@@ -86,5 +93,5 @@ app.controller('adminController',  ['$scope', '$http','$rootScope', '$routeParam
 
     $scope.views = ['USERS', 'PRODUCTS', 'ORDERS',
          'Most Popular Brands', 'Most Popular Products',
-                'Price Stats By Brand', 'User Stats'];
+                'Price Stats By Brand', 'User Stats', 'Projection'];
 }]);
