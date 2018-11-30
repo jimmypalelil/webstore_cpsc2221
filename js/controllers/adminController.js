@@ -63,7 +63,7 @@ app.controller('adminController',  ['$scope', '$http','$rootScope', '$routeParam
         }                      
     }
 
-    $scope.projectionHeaders = ['name', 'brand', 'colour','year'];
+    $scope.projectionHeaders = ['name', 'brand', 'colour','year', 'storage', 'lens', 'cpu'];
 
 
     //The table to view

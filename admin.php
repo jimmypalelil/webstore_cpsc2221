@@ -13,6 +13,7 @@
         {{table === '' ? "No Items FOUND!!!" : ''}}
 
         <select class="custom-select" ng-model="headerSelected" ng-change="changeProductTable()" ng-show="tableType==='Projection'">
+            <option value="">-- Choose Field To Display --</option>
             <option ng-repeat="header in projectionHeaders">{{header}}</option>
         </select>
         <hr class="my-4">
@@ -29,7 +30,7 @@
             </tr>
         </thead>
         <tr ng-repeat="item in table | orderBy: sortKey">
-            <td ng-show="key !== 'password'" ng-repeat="(key,value) in item">
+            <td ng-show="key !== 'password' || (tableType==='Projection' && value!= null)" ng-repeat="(key,value) in item">
                 {{ key.includes('price') ? '$' : '' }}{{key === 'total_quantity_sold' && value == null ? '0': value == null ? 'N/A' : value}}
                 {{(key === 'role' && value === 0) || ((key === 'USER_ID' || key === 'uid') &&  value <= 4) ? '(ADMIN)' : ''}} 
             </td>
