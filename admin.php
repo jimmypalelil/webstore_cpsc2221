@@ -12,6 +12,9 @@
         <!-- If no items are found from database -->
         {{table === '' ? "No Items FOUND!!!" : ''}}
 
+        <select ng-model="headerSelected" ng-change="changeProductTable()" ng-show="tableType==='PRODUCTS'">
+            <option ng-repeat="(key,value) in table[0]">{{key}}</option>
+        </select>
         <table class="table table-hover table-striped table-bordered table-condensed">
 
         <!-- Table header with sort icon -->

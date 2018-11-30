@@ -4,6 +4,13 @@ app.controller('adminController',  ['$scope', '$http','$rootScope', '$routeParam
 
     $scope.getCartTotal();
 
+    $scope.changeProductTable = function() {
+        console.log($scope.headerSelected);
+        $http.get("projetion.php?field=" + $scope.headerSelected).success(function(data) {
+           $scope.table = data; 
+        });
+    }
+
     var makeAdminURL = function(tableName) {
         return "GetAdminData.php?t=" + tableName;
     }
